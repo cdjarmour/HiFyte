@@ -103,7 +103,11 @@ public class BuildDisplay : MonoBehaviour
             noteHeight = 1080f / (_builderData.getSubdivisions() * 2);
             float fixBeat = Mathf.Round((ChartSingleton.baseBeat - Mathf.FloorToInt(ChartSingleton.baseBeat)) / (1f / _builderData.getSubdivisions()));
             transform.position = new Vector2(transform.position.x, 540 - fixBeat * noteHeight);
+            foreach (NoteDisplay nd in notes) {
+                nd.destroyVisual();
+            }
 
+            notes = _lane.getIntervalNotes();
 
         }
 
