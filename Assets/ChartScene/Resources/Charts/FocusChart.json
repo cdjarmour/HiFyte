@@ -1,0 +1,16 @@
+{
+    "metaData": {
+        "name": "Focus",
+        "bpm": 165.0,
+        "duration": 198.0,
+        "audioFilePath": "Artcore V3"
+    },
+    "notes": [
+        {
+            "time": 1.0,
+            "lane": 2,
+            "subdivision": 1,
+            "beat": 0.0
+        }
+    ]
+}
