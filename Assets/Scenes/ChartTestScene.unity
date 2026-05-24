@@ -2089,6 +2089,7 @@ MonoBehaviour:
   song: {fileID: 8300000, guid: 8c42cff7bf822c2429d14eb0549902a4, type: 3}
   bpm: 117
   _chartData: {fileID: 274590529}
+  _buildDisplay: {fileID: 42707881}
 --- !u!114 &1022256318
 MonoBehaviour:
   m_ObjectHideFlags: 0
