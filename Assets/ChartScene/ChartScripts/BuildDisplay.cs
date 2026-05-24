@@ -49,72 +49,107 @@ public class BuildDisplay : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.R)) {  
-            foreach (NoteDisplay nd in notes) nd.destroyVisual();
-            notes = _lane.getIntervalNotes();
-            Debug.Log(noteHeight);
-        }
-
-        if (Input.GetKeyDown(KeyCode.DownArrow)) {
-            if (ChartSingleton.baseBeat > 1) {
-                transform.position = new Vector2(transform.position.x, transform.position.y + noteHeight);
-                _builderData.BeatRemove();
-            }
-            updateDisplay();
-
-        }
-
-        if (Input.GetKeyDown(KeyCode.UpArrow)) {
-            if (ChartSingleton.baseBeat < totalBeats) {
-                transform.position = new Vector2(transform.position.x, transform.position.y - noteHeight);
-
-                _builderData.BeatAdd();
-            }
-            updateDisplay();
-        }
-
         if (Input.GetKeyDown(KeyCode.P)) {
-            foreach (NoteDisplay nd in notes) {
-                nd.destroyVisual();
-            }
+            if (!playing) {
 
-            notes = _lane.getIntervalNotesScroll();
+                foreach (NoteDisplay nd in notes) {
+                    nd.destroyVisual();
+                }
 
-            song.Play();
-            playing = true;
-        }
+                notes = _lane.getIntervalNotesScroll();
+                int playStart = Mathf.FloorToInt(ChartSingleton.baseBeat);
+                previousBeat = playStart - 1;
 
-        if (Input.GetKeyDown(KeyCode.Space)) {
-            /*
-             * 
-             *             song.Play();
-             *             playing = true;
-             *             
-             */
-            if (_builderData.getSubdivisions() == 8) {
-                this.GetComponent<Image>().sprite = lane9;
-                _builderData.setSubdivisions(9);
+                _builderData.setBeat(playStart);
+
+
+                song.time = previousBeat * BeatManager.BeatLength(ChartSingleton.bpm);
+
+                song.Play();
+                playing = true;
             } else {
-                this.GetComponent<Image>().sprite = lane8;
-                _builderData.setSubdivisions(8);
+                foreach (NoteDisplay nd in notes) {
+                    nd.destroyVisual();
+                }
+
+                notes = _lane.getIntervalNotesScroll();
+                song.Stop();
+                playing = false;
+                transform.position = new Vector2(transform.position.x, 540);
+
+
+
+            }
+        }
+
+        if (!playing) {
+
+
+                float scroll = Input.GetAxis("Mouse ScrollWheel");
+                if (scroll > 0f) {
+                    if (ChartSingleton.baseBeat < totalBeats) {
+                        transform.position = new Vector2(transform.position.x, transform.position.y - noteHeight);
+                        _builderData.BeatAdd();
+                        updateDisplay();
+                    }
+                } else if (scroll < 0f) {
+                    if (ChartSingleton.baseBeat > 1) {
+                        transform.position = new Vector2(transform.position.x, transform.position.y + noteHeight);
+                        _builderData.BeatRemove();
+                        updateDisplay();
+                    }
+                }
+
+
+
+            if (Input.GetKeyDown(KeyCode.DownArrow)) {
+                if (ChartSingleton.baseBeat > 1) {
+                    transform.position = new Vector2(transform.position.x, transform.position.y + noteHeight);
+                    _builderData.BeatRemove();
+                }
+                updateDisplay();
+
+            }
+
+            if (Input.GetKeyDown(KeyCode.UpArrow)) {
+                if (ChartSingleton.baseBeat < totalBeats) {
+                    transform.position = new Vector2(transform.position.x, transform.position.y - noteHeight);
+
+                    _builderData.BeatAdd();
+                }
+                updateDisplay();
+            }
+
+            if (Input.GetKeyDown(KeyCode.Space)) {
+
+                if (_builderData.getSubdivisions() == 8) {
+                    this.GetComponent<Image>().sprite = lane9;
+                    _builderData.setSubdivisions(9);
+                } else {
+                    this.GetComponent<Image>().sprite = lane8;
+                    _builderData.setSubdivisions(8);
+                }
+
+
+                noteHeight = 1080f / (_builderData.getSubdivisions() * 2);
+                float fixBeat = Mathf.Round((ChartSingleton.baseBeat - Mathf.FloorToInt(ChartSingleton.baseBeat)) / (1f / _builderData.getSubdivisions()));
+                transform.position = new Vector2(transform.position.x, 540 - fixBeat * noteHeight);
+                updateDisplay();
             }
 
 
-            noteHeight = 1080f / (_builderData.getSubdivisions() * 2);
-            float fixBeat = Mathf.Round((ChartSingleton.baseBeat - Mathf.FloorToInt(ChartSingleton.baseBeat)) / (1f / _builderData.getSubdivisions()));
-            transform.position = new Vector2(transform.position.x, 540 - fixBeat * noteHeight);
-            updateDisplay();
+            if (transform.position.y - _location.y * 2 >= 0) {
+                transform.position = _location;
+            }
 
-        }
+            if (transform.position.y + _location.y * 2 <= 1080) {
+                transform.position = _location;
+            }
 
 
-        if (Input.GetKeyDown(KeyCode.F)) {
-            updateDisplay();
-        }
-
-        if (playing) {
+        } else {
             float beatsTraversed = _beatManager.getRawTime() / BeatManager.BeatLength(ChartSingleton.bpm);
-            
+
             if (Mathf.FloorToInt(beatsTraversed) != previousBeat) {
                 previousBeat = Mathf.FloorToInt(beatsTraversed);
                 _builderData.setBeat(previousBeat + 1);
@@ -132,23 +167,12 @@ public class BuildDisplay : MonoBehaviour
             foreach (NoteDisplay nd in notes) {
                 nd.transform.position = new Vector2(nd.transform.position.x, nd.getY() + yOffset - 540f);
             }
-
-
-
-
-
-        } else {
-            if (transform.position.y - _location.y * 2 >= 0) {
-                transform.position = _location;
-            }
-
-            if (transform.position.y + _location.y * 2 <= 1080) {
-                transform.position = _location;
-            }
         }
+        
     }
 
     public void updateDisplay() {
+        if (playing) { return; }
         foreach (NoteDisplay nd in notes) {
             nd.destroyVisual();
         }
