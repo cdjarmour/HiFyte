@@ -44,16 +44,8 @@ public class ChartSingleton : MonoBehaviour
         Debug.Log(baseBeat);
     }
 
-    public void BeatAdd(float inc) {
-        baseBeat = baseBeat + inc;
-        baseBeat = Mathf.Round(baseBeat * subdivisions) / subdivisions;
-        Debug.Log(baseBeat);
-    }
-
-    public void BeatRemove(float dec) {
-        baseBeat = baseBeat - dec;
-        baseBeat = Mathf.Round(baseBeat * subdivisions) / subdivisions;
-        Debug.Log(baseBeat);
+    public void setBeat(int beat) {
+        baseBeat = beat;
     }
 
 

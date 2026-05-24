@@ -24,9 +24,8 @@ public class BuildDisplay : MonoBehaviour
     private float noteHeight;
     private bool playing = false;
     private List<NoteDisplay> notes = new List<NoteDisplay>();
-    private float scrollPos;
 
-    private int previousDivision;
+    int previousBeat = 0;
 
     AudioSource song;
 
@@ -43,7 +42,6 @@ public class BuildDisplay : MonoBehaviour
         transform.position = _location;
         noteHeight = 1080f / (_builderData.getSubdivisions() * 2);
 
-        previousDivision = _builderData.getSubdivisions();
         
     }
 
@@ -62,11 +60,7 @@ public class BuildDisplay : MonoBehaviour
                 transform.position = new Vector2(transform.position.x, transform.position.y + noteHeight);
                 _builderData.BeatRemove();
             }
-            foreach (NoteDisplay nd in notes) {
-                nd.destroyVisual();
-            }
-
-            notes = _lane.getIntervalNotes();
+            updateDisplay();
 
         }
 
@@ -76,13 +70,19 @@ public class BuildDisplay : MonoBehaviour
 
                 _builderData.BeatAdd();
             }
+            updateDisplay();
+        }
+
+        if (Input.GetKeyDown(KeyCode.P)) {
             foreach (NoteDisplay nd in notes) {
                 nd.destroyVisual();
             }
 
-            notes = _lane.getIntervalNotes();
-        }
+            notes = _lane.getIntervalNotesScroll();
 
+            song.Play();
+            playing = true;
+        }
 
         if (Input.GetKeyDown(KeyCode.Space)) {
             /*
@@ -103,30 +103,40 @@ public class BuildDisplay : MonoBehaviour
             noteHeight = 1080f / (_builderData.getSubdivisions() * 2);
             float fixBeat = Mathf.Round((ChartSingleton.baseBeat - Mathf.FloorToInt(ChartSingleton.baseBeat)) / (1f / _builderData.getSubdivisions()));
             transform.position = new Vector2(transform.position.x, 540 - fixBeat * noteHeight);
-            foreach (NoteDisplay nd in notes) {
-                nd.destroyVisual();
-            }
-
-            notes = _lane.getIntervalNotes();
+            updateDisplay();
 
         }
 
 
         if (Input.GetKeyDown(KeyCode.F)) {
-            foreach (NoteDisplay nd in notes) {
-                nd.destroyVisual();
-            }
-
-            notes = _lane.getIntervalNotes(-1, 533);
-
-
+            updateDisplay();
         }
 
         if (playing) {
-            float totalBeats = _beatManager.getRawTime() / BeatManager.BeatLength(117f);
-            float beatFraction = Mathf.Repeat(totalBeats, 1f);
+            float beatsTraversed = _beatManager.getRawTime() / BeatManager.BeatLength(ChartSingleton.bpm);
+            
+            if (Mathf.FloorToInt(beatsTraversed) != previousBeat) {
+                previousBeat = Mathf.FloorToInt(beatsTraversed);
+                _builderData.setBeat(previousBeat + 1);
+                foreach (NoteDisplay nd in notes) {
+                    nd.destroyVisual();
+                }
+
+                notes = _lane.getIntervalNotesScroll();
+
+                Debug.Log("test");
+            }
+            float beatFraction = Mathf.Repeat(beatsTraversed, 1f);
             float yOffset = (1f - beatFraction) * 540f;
             transform.position = new Vector2(_location.x, _location.y + yOffset);
+            foreach (NoteDisplay nd in notes) {
+                nd.transform.position = new Vector2(nd.transform.position.x, nd.getY() + yOffset - 540f);
+            }
+
+
+
+
+
         } else {
             if (transform.position.y - _location.y * 2 >= 0) {
                 transform.position = _location;
@@ -136,6 +146,14 @@ public class BuildDisplay : MonoBehaviour
                 transform.position = _location;
             }
         }
+    }
+
+    public void updateDisplay() {
+        foreach (NoteDisplay nd in notes) {
+            nd.destroyVisual();
+        }
+
+        notes = _lane.getIntervalNotes();
     }
 
 }

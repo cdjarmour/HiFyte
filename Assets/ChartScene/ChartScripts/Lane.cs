@@ -14,6 +14,7 @@ public class Lane : MonoBehaviour, IPointerClickHandler {
     [SerializeField] private AudioClip song;
     [SerializeField] private int bpm;
     [SerializeField] private ChartSingleton _chartData;
+    [SerializeField] private BuildDisplay _buildDisplay;
 
     private int subdivisions;
 
@@ -42,7 +43,7 @@ public class Lane : MonoBehaviour, IPointerClickHandler {
 
         int subBeat = Mathf.FloorToInt((beatClicked - (float)currBeat) * subdivisions) + 1;
 
-        float time = (currBeat - 1 + (float) (subBeat - 1) / subdivisions) * BeatManager.BeatLength(bpm); 
+        float time = (currBeat - 1 + (float)(subBeat - 1) / subdivisions) * BeatManager.BeatLength(bpm);
 
         Debug.Log("relBeat: " + subBeat);
         Debug.Log("CurrBeat: " + currBeat);
@@ -53,10 +54,12 @@ public class Lane : MonoBehaviour, IPointerClickHandler {
             if (chartLanes[currLane][currBeat].ContainsKey(subBeat)) {
             } else {
                 chartLanes[currLane][currBeat].Add(subBeat, new Note(time, currLane, subdivisions));
+                _buildDisplay.updateDisplay();
             }
         } else {
             chartLanes[currLane].Add(currBeat, new Dictionary<int, Note>());
             chartLanes[currLane][currBeat].Add(subBeat, new Note(time, currLane, subdivisions));
+            _buildDisplay.updateDisplay();
         }
 
     }
@@ -73,7 +76,7 @@ public class Lane : MonoBehaviour, IPointerClickHandler {
                     for (int k = 1; k <= 9; k++) {
                         if (chartLanes[i][j].ContainsKey(k)) {
                             if (chartLanes[i][j][k].time >= (ChartSingleton.baseBeat - 2) * BeatManager.BeatLength(bpm) - epsilon
-                                && chartLanes[i][j][k].time <= (ChartSingleton.baseBeat + 1) * BeatManager.BeatLength(bpm) + epsilon){
+                                && chartLanes[i][j][k].time <= (ChartSingleton.baseBeat + 1) * BeatManager.BeatLength(bpm) + epsilon) {
 
                                 GameObject go = new GameObject("Note", typeof(NoteDisplay));
                                 NoteDisplay nd = go.GetComponent<NoteDisplay>();
@@ -91,18 +94,25 @@ public class Lane : MonoBehaviour, IPointerClickHandler {
     }
 
 
-    public List<NoteDisplay> getIntervalNotes(int min, int max) {
+    public List<NoteDisplay> getIntervalNotesScroll() {
         List<NoteDisplay> notes = new List<NoteDisplay>();
+        int min = Mathf.FloorToInt(ChartSingleton.baseBeat);
+        int max = Mathf.CeilToInt(ChartSingleton.baseBeat + 3);
+        float epsilon = 0.0001f;
 
         for (int i = 0; i < 4; i++) {
             for (int j = min; j <= max; j++) {
                 if (chartLanes[i].ContainsKey(j)) {
                     for (int k = 1; k <= 9; k++) {
                         if (chartLanes[i][j].ContainsKey(k)) {
+                            if (chartLanes[i][j][k].time >= (ChartSingleton.baseBeat - 2) * BeatManager.BeatLength(bpm) - epsilon
+                                && chartLanes[i][j][k].time <= (ChartSingleton.baseBeat + 2) * BeatManager.BeatLength(bpm) + epsilon) {
+
                                 GameObject go = new GameObject("Note", typeof(NoteDisplay));
                                 NoteDisplay nd = go.GetComponent<NoteDisplay>();
                                 nd.setNote(chartLanes[i][j][k]);
                                 notes.Add(nd);
+                            }
                         }
                     }
                 }
@@ -112,7 +122,6 @@ public class Lane : MonoBehaviour, IPointerClickHandler {
 
         return notes;
     }
-
 }
 
 

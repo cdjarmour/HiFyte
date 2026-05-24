@@ -10,6 +10,7 @@ public class NoteDisplay : MonoBehaviour
     private Image image;
     private RectTransform rt;
     private Note note;
+    private float yPos;
 
     public void Awake() {
         image = GetComponent<Image>();
@@ -37,6 +38,7 @@ public class NoteDisplay : MonoBehaviour
             y -= ((ChartSingleton.baseBeat - Mathf.FloorToInt(ChartSingleton.baseBeat)) * ChartSingleton.subdivisions) * (1080f / (ChartSingleton.subdivisions * 2));
         }
             rt.transform.position = new Vector2(x, y);
+        yPos = y;
 
     }
 
@@ -44,6 +46,10 @@ public class NoteDisplay : MonoBehaviour
 
         Object.Destroy(this.gameObject);
 
+    }
+
+    public float getY() {
+        return yPos;
     }
 
 
