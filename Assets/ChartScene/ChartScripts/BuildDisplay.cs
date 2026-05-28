@@ -165,7 +165,13 @@ public class BuildDisplay : MonoBehaviour
             float yOffset = (1f - beatFraction) * 540f;
             transform.position = new Vector2(_location.x, _location.y + yOffset);
             foreach (NoteDisplay nd in notes) {
-                nd.transform.position = new Vector2(nd.transform.position.x, nd.getY() + yOffset - 540f);
+                Transform root;
+                if (nd.transform.parent != ChartSingleton.canvas.transform) {
+                    root = nd.transform.parent;
+                } else {
+                    root = nd.transform;
+                }
+                root.position = new Vector2(root.position.x, nd.getY() + yOffset - 540f);
             }
         }
         
