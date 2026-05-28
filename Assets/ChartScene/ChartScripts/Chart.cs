@@ -29,19 +29,34 @@ public class ChartData {
     }
 }
 
+
 [Serializable]
 public class Note {
     public float time;
     public int lane;
     public int subdivision;
     public float beat;
+    public int holdBeats;
+    public String type;
 
-    public Note(float time, int lane, int subdivision) {
+    public Note(float time, int lane, int subdivision, int holdBeats, String nt) {
+        this.type = nt;
         this.time = time;
         this.lane = lane;
         this.subdivision = subdivision;
+        this.holdBeats = holdBeats;
+        this.type = nt;
     }
+
+    public Note(float time, int lane, int subdivision, String nt)
+        : this(time, lane, subdivision, 0, nt)  {}
+
+    public Note(float time, int lane, int subdivision)
+    : this(time, lane, subdivision, 0, "Normal") { }
 }
+
+
+
 
 
 public class ChartJSON {

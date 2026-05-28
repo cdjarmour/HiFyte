@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEditor.TerrainTools;
 using UnityEngine;
 
@@ -14,12 +16,14 @@ public class ChartSingleton : MonoBehaviour
     public static int subdivisions;
     public static float baseBeat;
     public static Canvas canvas;
+    public static String buildState;
 
     public void Awake() {
         canvas = _canvas;
         bpm = _bpm;
         subdivisions = _subdivisions;
         baseBeat = 1;
+        buildState = "Normal";
     }
 
     public int getSubdivisions() {
@@ -50,3 +54,4 @@ public class ChartSingleton : MonoBehaviour
 
 
 }
+

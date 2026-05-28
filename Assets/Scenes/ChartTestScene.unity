@@ -346,7 +346,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _location: {x: 320, y: 540}
-  _audio: {fileID: 8300000, guid: 7793f56bdd4fffe45bd41da6a1459559, type: 3}
+  _audio: {fileID: 8300000, guid: 2df036560daf0364a95e5f82fb243c53, type: 3}
   _beatManager: {fileID: 446571087}
   _builderData: {fileID: 274590529}
   _lane: {fileID: 1022256317}
@@ -606,7 +606,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _canvas: {fileID: 698182190}
-  _bpm: 117
+  _bpm: 97
   _subdivisions: 8
 --- !u!4 &274590530
 Transform:
@@ -2087,7 +2087,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   song: {fileID: 8300000, guid: 8c42cff7bf822c2429d14eb0549902a4, type: 3}
-  bpm: 117
+  bpm: 97
   _chartData: {fileID: 274590529}
   _buildDisplay: {fileID: 42707881}
 --- !u!114 &1022256318

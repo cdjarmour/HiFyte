@@ -17,6 +17,7 @@ public class Lane : MonoBehaviour, IPointerClickHandler {
     [SerializeField] private BuildDisplay _buildDisplay;
 
     private int subdivisions;
+    private bool extending = false;
 
     private Dictionary<int, Dictionary<int, Note>>[] chartLanes;
 
@@ -50,16 +51,32 @@ public class Lane : MonoBehaviour, IPointerClickHandler {
         Debug.Log("Time: " + time);
         Debug.Log("Lane: " + currLane);
 
-        if (chartLanes[currLane].ContainsKey(currBeat)) {
-            if (chartLanes[currLane][currBeat].ContainsKey(subBeat)) {
+        if (ChartSingleton.buildState == "Hold") {
+            if (chartLanes[currLane].ContainsKey(currBeat)) {
+                if (chartLanes[currLane][currBeat].ContainsKey(subBeat)) {
+                } else {
+                    chartLanes[currLane][currBeat].Add(subBeat, new Note(time, currLane, subdivisions, 2, ChartSingleton.buildState));
+                    _buildDisplay.updateDisplay();
+                }
             } else {
-                chartLanes[currLane][currBeat].Add(subBeat, new Note(time, currLane, subdivisions));
+                chartLanes[currLane].Add(currBeat, new Dictionary<int, Note>());
+                chartLanes[currLane][currBeat].Add(subBeat, new Note(time, currLane, subdivisions, 2, ChartSingleton.buildState));
                 _buildDisplay.updateDisplay();
             }
+
+            Debug.Log("bruh");
         } else {
-            chartLanes[currLane].Add(currBeat, new Dictionary<int, Note>());
-            chartLanes[currLane][currBeat].Add(subBeat, new Note(time, currLane, subdivisions));
-            _buildDisplay.updateDisplay();
+            if (chartLanes[currLane].ContainsKey(currBeat)) {
+                if (chartLanes[currLane][currBeat].ContainsKey(subBeat)) {
+                } else {
+                    chartLanes[currLane][currBeat].Add(subBeat, new Note(time, currLane, subdivisions, ChartSingleton.buildState));
+                    _buildDisplay.updateDisplay();
+                }
+            } else {
+                chartLanes[currLane].Add(currBeat, new Dictionary<int, Note>());
+                chartLanes[currLane][currBeat].Add(subBeat, new Note(time, currLane, subdivisions, ChartSingleton.buildState));
+                _buildDisplay.updateDisplay();
+            }
         }
 
     }
