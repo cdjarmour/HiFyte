@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class BuildDisplay : MonoBehaviour
 {
     [SerializeField] private Vector2 _location;
-    [SerializeField] private AudioClip _audio;
+
     [SerializeField] private BeatManager _beatManager;
     [SerializeField] private ChartSingleton _builderData;
     [SerializeField] private Lane _lane;
@@ -18,7 +18,7 @@ public class BuildDisplay : MonoBehaviour
 
 
     //temp
-    [SerializeField] private int totalBeats;
+    private int totalBeats = 0;
     //
 
     private float noteHeight;
@@ -28,12 +28,13 @@ public class BuildDisplay : MonoBehaviour
     int previousBeat = 0;
 
     AudioSource song;
-
+    private AudioClip _audio;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        _audio = ChartSingleton.song;
         notes = _lane.getIntervalNotes();
         song = _beatManager.GetComponent<AudioSource>();
         song.clip = _audio;
@@ -41,6 +42,8 @@ public class BuildDisplay : MonoBehaviour
 
         transform.position = _location;
         noteHeight = 1080f / (_builderData.getSubdivisions() * 2);
+        totalBeats = Mathf.CeilToInt(_audio.length / BeatManager.BeatLength(ChartSingleton.bpm));
+        Debug.Log("Total Beats:" + totalBeats);
 
         
     }
@@ -87,7 +90,7 @@ public class BuildDisplay : MonoBehaviour
 
                 float scroll = Input.GetAxis("Mouse ScrollWheel");
                 if (scroll > 0f) {
-                    if (ChartSingleton.baseBeat < totalBeats) {
+                    if (ChartSingleton.baseBeat < totalBeats - 1) {
                         transform.position = new Vector2(transform.position.x, transform.position.y - noteHeight);
                         _builderData.BeatAdd();
                         updateDisplay();

@@ -25,6 +25,7 @@ public class NoteDisplay : MonoBehaviour
         else image.sprite = Resources.Load<Sprite>("Notes/" + note.type);
 
         transform.SetParent(ChartSingleton.canvas.transform, false);
+        transform.SetSiblingIndex(1);
         rt.sizeDelta = new Vector2(160f, 1080f / (24));
         rt.pivot = new Vector2(0.5f, 0f);
         rt.anchorMin = new Vector2(0, 0);
@@ -49,7 +50,8 @@ public class NoteDisplay : MonoBehaviour
             holdDisplay.AddComponent<Image>().sprite = Resources.Load<Sprite>("Notes/Hold");
             RectTransform hrt = holdDisplay.GetComponent<RectTransform>();
             hrt.transform.SetParent(ChartSingleton.canvas.transform, false);
-            hrt.sizeDelta = new Vector2(160f, (1080f / note.subdivision) * note.holdBeats);
+            hrt.transform.SetSiblingIndex(1);
+            hrt.sizeDelta = new Vector2(160f, ((1080f / (note.subdivision * 2)) * note.holdBeats) + ((1080f / (note.subdivision * 2)) * (1 % (note.holdBeats + 1))));
             hrt.pivot = new Vector2(0.5f, 0f);
             hrt.anchorMin = new Vector2(0, 0);
             hrt.anchorMax = new Vector2(0, 0);
@@ -65,9 +67,8 @@ public class NoteDisplay : MonoBehaviour
 
     public void destroyVisual() {
 
-        if (note.type == "Hold") {
+        if (holdDisplay != null) {
             Object.Destroy(holdDisplay.gameObject);
-            Debug.Log("removed hold");
         } else Object.Destroy(this.gameObject);
 
     }

@@ -35,7 +35,6 @@ public class Note {
     public float time;
     public int lane;
     public int subdivision;
-    public float beat;
     public int holdBeats;
     public String type;
 
