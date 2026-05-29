@@ -10,6 +10,7 @@ public class ChartSingleton : MonoBehaviour
     [SerializeField] private Canvas _canvas;
     [SerializeField] private int _bpm;
     [SerializeField] private int _subdivisions;
+    [SerializeField] private AudioClip _song;
 
 
     public static int bpm;
@@ -17,6 +18,7 @@ public class ChartSingleton : MonoBehaviour
     public static float baseBeat;
     public static Canvas canvas;
     public static String buildState;
+    public static AudioClip song;
 
     public void Awake() {
         canvas = _canvas;
@@ -24,6 +26,7 @@ public class ChartSingleton : MonoBehaviour
         subdivisions = _subdivisions;
         baseBeat = 1;
         buildState = "Normal";
+        song = _song;
     }
 
     public int getSubdivisions() {

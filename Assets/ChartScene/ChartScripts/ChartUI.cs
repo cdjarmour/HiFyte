@@ -31,11 +31,8 @@ public class ChartUI : MonoBehaviour
         placeHold.onClick.AddListener(delegate {
             ChartSingleton.buildState = "Hold";
         });
-
-
-
-
-
     }
+
+
 
 }
