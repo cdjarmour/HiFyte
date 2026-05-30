@@ -40,20 +40,19 @@ public class AudioStarter : MonoBehaviour
                 }
 
             } else if (loaded) {
-                Chart chart = new Chart();
-                ChartData cd = new ChartData("Focus", 165f, 198f, "Artcore V3");
-                Note note1 = new Note(1, 2, 1);
-                chart.metaData = cd;
-                chart.notes.Add(note1);
-                ChartJSON.ConvertToJSON(chart);
-                Debug.Log("2");
+                //Chart chart = new Chart();
+                //ChartData cd = new ChartData("Focus", 165f, 198f, "Artcore V3");
+                //Note note1 = new Note(1, 2, 1);
+                //chart.metaData = cd;
+                //ChartJSON.ConvertToJSON(chart);
+                //Debug.Log("2");
 
-                audioPath = Resources.Load<AudioClip>(ChartJSON.ConvertToChart("Focus").metaData.audioFilePath);
-                Debug.Log("2");
-                song = GetComponent<AudioSource>();
-                song.clip = audioPath;
-                song.time = _startTime;
-                loaded = false;
+                //audioPath = Resources.Load<AudioClip>(ChartJSON.ConvertToChart("Focus").metaData.audioFilePath);
+                //Debug.Log("2");
+                //song = GetComponent<AudioSource>();
+                //song.clip = audioPath;
+                //song.time = _startTime;
+                //loaded = false;
 
             }
         }

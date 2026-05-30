@@ -8,29 +8,18 @@ using UnityEngine;
 public class ChartSingleton : MonoBehaviour
 {
     [SerializeField] private Canvas _canvas;
-    [SerializeField] private int _bpm;
-    [SerializeField] private int _subdivisions;
-    [SerializeField] private AudioClip _song;
-
 
     public static int bpm;
     public static int subdivisions;
     public static float baseBeat;
     public static Canvas canvas;
     public static String buildState;
-    public static AudioClip song;
 
-    public void Awake() {
+    public void OnEnable() {
         canvas = _canvas;
-        bpm = _bpm;
-        subdivisions = _subdivisions;
+        subdivisions = 8;
         baseBeat = 1;
         buildState = "Normal";
-        song = _song;
-    }
-
-    public int getSubdivisions() {
-        return subdivisions;
     }
 
     public void setSubdivisions(int sd) {
@@ -50,11 +39,5 @@ public class ChartSingleton : MonoBehaviour
         baseBeat = Mathf.Round(baseBeat * subdivisions) / subdivisions;
         Debug.Log(baseBeat);
     }
-
-    public void setBeat(int beat) {
-        baseBeat = beat;
-    }
-
-
 }
 

@@ -5,27 +5,34 @@ using System.IO;
 using System.IO.Enumeration;
 using Unity.VisualScripting;
 using UnityEngine;
+using Newtonsoft.Json;
 
 
 [Serializable]
 public class Chart {
     public ChartData metaData;
-    public List<Note> notes = new List<Note>();
+    public Dictionary<int, Dictionary<int, Note>>[] notes;
 }
 
 [Serializable]
 public class ChartData {
     public string name;
-    public float bpm;
-    public float duration;
-    public String audioFilePath;
+    public string composer;
+    public int bpm;
+    public float samplePos;
+    public string audioFilePath;
+    public string imageFilePath;
+    public string notesFilePath;
 
 
-    public ChartData(string name, float bpm, float duration, String audio) {
+    public ChartData(string name, string composer, int bpm, float samplePos) {
         this.name = name;
+        this.composer = composer;
         this.bpm = bpm;
-        this.duration = duration;
-        this.audioFilePath = audio;
+        this.audioFilePath = "AudioFiles/" + name;
+        this.imageFilePath = "ChartCover/" + name;
+        this.notesFilePath = "NoteData/" + name + "Notes";
+        this.samplePos = samplePos;
     }
 }
 
@@ -38,6 +45,7 @@ public class Note {
     public int holdBeats;
     public String type;
 
+    public Note() { }
     public Note(float time, int lane, int subdivision, int holdBeats, String nt) {
         this.type = nt;
         this.time = time;
@@ -58,32 +66,54 @@ public class Note {
 
 
 
-public class ChartJSON {
-
+public static class ChartJSON {
     public static bool hasChart(String name) {
-        if (Resources.Load<TextAsset>(Path.Combine("Charts", name + "Chart")) != null) {
-            return true;
+        return (Resources.Load<TextAsset>("ChartData/MetaData/" + name) != null);
+    }
+    public static void createChart(string name, string composer, int bpm, float samplePos) {
+        ChartData newChart = new ChartData(name, composer, bpm, samplePos);
+        Dictionary<int, Dictionary<int, Note>>[] notes = new Dictionary<int, Dictionary<int, Note>>[4];
+        for (int i = 0; i < notes.Length; i++) {
+            notes[i] = new Dictionary<int, Dictionary<int, Note>>();
         }
+        string dataPath = Path.Combine(Application.dataPath, "Resources", "ChartData", "MetaData", newChart.name + ".json");
+        string notePath = Path.Combine(Application.dataPath, "Resources", "ChartData", newChart.notesFilePath + ".json");
 
-        return false;
+        string dataJSON = JsonConvert.SerializeObject(newChart, Formatting.Indented);
+        string noteJSON = JsonConvert.SerializeObject(notes, Formatting.Indented);
+
+        Directory.CreateDirectory(Path.GetDirectoryName(dataPath));
+        Directory.CreateDirectory(Path.GetDirectoryName(notePath));
+
+        using StreamWriter dataSW = new StreamWriter(dataPath);
+        dataSW.Write(dataJSON);
+
+        using StreamWriter noteSW = new StreamWriter(notePath);
+        noteSW.Write(noteJSON);
+        UnityEditor.AssetDatabase.Refresh();
     }
 
-    public static void ConvertToJSON(Chart chart) {
-        string path = Path.Combine(Application.dataPath, "ChartScene", "Resources", "Charts", chart.metaData.name + "Chart.json");
-        string json = JsonUtility.ToJson(chart, true);
 
-        using StreamWriter sw = new StreamWriter(path);
-        sw.Write(json);
-        Debug.Log("file written");
+    public static Dictionary<int, Dictionary<int, Note>>[] getNotes(ChartData mdata) {
+        string data = Resources.Load<TextAsset>("ChartData/" + mdata.notesFilePath).text;
+
+        return JsonConvert.DeserializeObject<Dictionary<int, Dictionary<int, Note>>[]>(data);
     }
 
+    public static ChartData getMetaData(string name) {
+        string data = Resources.Load<TextAsset>("ChartData/MetaData/" + name).text;
 
-    public static Chart ConvertToChart(String songName) {
-        string path = Path.Combine(Application.dataPath, "ChartScene", "Resources", "Charts", songName + "Chart.json");
-        using StreamReader sr = new StreamReader(path);
-
-        string json = sr.ReadToEnd();
-        return JsonUtility.FromJson<Chart>(json);
+        return JsonConvert.DeserializeObject<ChartData>(data);
     }
+
+    public static void convertNotes(ChartData data, Dictionary<int, Dictionary<int, Note>>[] notes) {
+        string notePath = Path.Combine(Application.dataPath, "Resources", "ChartData", data.notesFilePath + ".json");
+
+        string noteJSON = JsonConvert.SerializeObject(notes, Formatting.Indented);
+
+        using StreamWriter sw = new StreamWriter(notePath);
+        sw.Write(noteJSON);
+    }
+
 }
 

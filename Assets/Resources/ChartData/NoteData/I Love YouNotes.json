@@ -1,0 +1,35 @@
+[
+  {
+    "1": {
+      "8": {
+        "time": 0.448717982,
+        "lane": 0,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    }
+  },
+  {},
+  {},
+  {
+    "1": {
+      "8": {
+        "time": 0.448717982,
+        "lane": 3,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "2": {
+      "1": {
+        "time": 0.512820542,
+        "lane": 3,
+        "subdivision": 9,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    }
+  }
+]
