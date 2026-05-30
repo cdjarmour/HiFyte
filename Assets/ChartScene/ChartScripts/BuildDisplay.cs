@@ -1,7 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,9 +7,9 @@ public class BuildDisplay : MonoBehaviour
 {
     [SerializeField] private Vector2 _location;
 
-    [SerializeField] private BeatManager _beatManager;
+    [SerializeField] private AudioSource _audioSource;
     [SerializeField] private ChartSingleton _builderData;
-    [SerializeField] private Lane _lane;
+    [SerializeField] private NoteInput _input;
 
     [SerializeField] private Sprite lane8;
     [SerializeField] private Sprite lane9;
@@ -27,23 +25,19 @@ public class BuildDisplay : MonoBehaviour
 
     int previousBeat = 0;
 
-    AudioSource song;
-    private AudioClip _audio;
 
 
     // Start is called before the first frame update
-    void Start()
+    void OnEnable()
     {
-        _audio = ChartSingleton.song;
-        notes = _lane.getIntervalNotes();
-        song = _beatManager.GetComponent<AudioSource>();
-        song.clip = _audio;
+
 
 
         transform.position = _location;
-        noteHeight = 1080f / (_builderData.getSubdivisions() * 2);
-        totalBeats = Mathf.CeilToInt(_audio.length / BeatManager.BeatLength(ChartSingleton.bpm));
+        noteHeight = 1080f / (ChartSingleton.subdivisions * 2);
+        totalBeats = Mathf.CeilToInt(_audioSource.clip.length / BeatManager.BeatLength(ChartSingleton.bpm));
         Debug.Log("Total Beats:" + totalBeats);
+        updateDisplay();
 
         
     }
@@ -59,24 +53,24 @@ public class BuildDisplay : MonoBehaviour
                     nd.destroyVisual();
                 }
 
-                notes = _lane.getIntervalNotesScroll();
+                notes = _input.getIntervalNotesScroll();
                 int playStart = Mathf.FloorToInt(ChartSingleton.baseBeat);
                 previousBeat = playStart - 1;
 
-                _builderData.setBeat(playStart);
+                ChartSingleton.baseBeat = playStart;
 
 
-                song.time = previousBeat * BeatManager.BeatLength(ChartSingleton.bpm);
+                _audioSource.time = previousBeat * BeatManager.BeatLength(ChartSingleton.bpm);
 
-                song.Play();
+                _audioSource.Play();
                 playing = true;
             } else {
                 foreach (NoteDisplay nd in notes) {
                     nd.destroyVisual();
                 }
 
-                notes = _lane.getIntervalNotesScroll();
-                song.Stop();
+                notes = _input.getIntervalNotesScroll();
+                _audioSource.Stop();
                 playing = false;
                 transform.position = new Vector2(transform.position.x, 540);
 
@@ -125,7 +119,7 @@ public class BuildDisplay : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.Space)) {
 
-                if (_builderData.getSubdivisions() == 8) {
+                if (ChartSingleton.subdivisions == 8) {
                     this.GetComponent<Image>().sprite = lane9;
                     _builderData.setSubdivisions(9);
                 } else {
@@ -134,8 +128,8 @@ public class BuildDisplay : MonoBehaviour
                 }
 
 
-                noteHeight = 1080f / (_builderData.getSubdivisions() * 2);
-                float fixBeat = Mathf.Round((ChartSingleton.baseBeat - Mathf.FloorToInt(ChartSingleton.baseBeat)) / (1f / _builderData.getSubdivisions()));
+                noteHeight = 1080f / (ChartSingleton.subdivisions * 2);
+                float fixBeat = Mathf.Round((ChartSingleton.baseBeat - Mathf.FloorToInt(ChartSingleton.baseBeat)) / (1f / ChartSingleton.subdivisions));
                 transform.position = new Vector2(transform.position.x, 540 - fixBeat * noteHeight);
                 updateDisplay();
             }
@@ -151,16 +145,16 @@ public class BuildDisplay : MonoBehaviour
 
 
         } else {
-            float beatsTraversed = _beatManager.getRawTime() / BeatManager.BeatLength(ChartSingleton.bpm);
+            float beatsTraversed = _audioSource.time / BeatManager.BeatLength(ChartSingleton.bpm);
 
             if (Mathf.FloorToInt(beatsTraversed) != previousBeat) {
                 previousBeat = Mathf.FloorToInt(beatsTraversed);
-                _builderData.setBeat(previousBeat + 1);
+                ChartSingleton.baseBeat = previousBeat + 1;
                 foreach (NoteDisplay nd in notes) {
                     nd.destroyVisual();
                 }
 
-                notes = _lane.getIntervalNotesScroll();
+                notes = _input.getIntervalNotesScroll();
 
                 Debug.Log("test");
             }
@@ -186,7 +180,15 @@ public class BuildDisplay : MonoBehaviour
             nd.destroyVisual();
         }
 
-        notes = _lane.getIntervalNotes();
+        notes = _input.getIntervalNotes();
+    }
+
+    private void OnDisable() {
+        foreach (NoteDisplay nd in notes) {
+            nd.destroyVisual();
+        }
+        notes.Clear();
+        transform.position = _location;
     }
 
 }
