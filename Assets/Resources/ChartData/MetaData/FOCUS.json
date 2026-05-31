@@ -1,0 +1,9 @@
+{
+  "name": "FOCUS",
+  "composer": "KIRA",
+  "bpm": 165,
+  "samplePos": 35.0,
+  "audioFilePath": "AudioFiles/FOCUS",
+  "imageFilePath": "ChartCover/FOCUS",
+  "notesFilePath": "NoteData/FOCUSNotes"
+}
