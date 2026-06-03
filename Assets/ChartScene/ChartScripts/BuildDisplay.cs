@@ -109,7 +109,7 @@ public class BuildDisplay : MonoBehaviour
             }
 
             if (Input.GetKeyDown(KeyCode.UpArrow)) {
-                if (ChartSingleton.baseBeat < totalBeats) {
+                if (ChartSingleton.baseBeat < totalBeats - 1) {
                     transform.position = new Vector2(transform.position.x, transform.position.y - noteHeight);
 
                     _builderData.BeatAdd();
