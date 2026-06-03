@@ -96,6 +96,82 @@
         "holdBeats": 11,
         "type": "Hold"
       }
+    },
+    "8": {
+      "1": {
+        "time": 3.58974385,
+        "lane": 0,
+        "subdivision": 8,
+        "holdBeats": 5,
+        "type": "Hold"
+      },
+      "2": {
+        "time": 3.58974385,
+        "lane": 0,
+        "subdivision": 8,
+        "holdBeats": 5,
+        "type": "Hold"
+      },
+      "3": {
+        "time": 3.58974385,
+        "lane": 0,
+        "subdivision": 8,
+        "holdBeats": 5,
+        "type": "Hold"
+      },
+      "4": {
+        "time": 3.58974385,
+        "lane": 0,
+        "subdivision": 8,
+        "holdBeats": 5,
+        "type": "Hold"
+      },
+      "5": {
+        "time": 3.58974385,
+        "lane": 0,
+        "subdivision": 8,
+        "holdBeats": 5,
+        "type": "Hold"
+      },
+      "6": {
+        "time": 3.58974385,
+        "lane": 0,
+        "subdivision": 8,
+        "holdBeats": 5,
+        "type": "Hold"
+      },
+      "7": {
+        "time": 3.97435927,
+        "lane": 0,
+        "subdivision": 8,
+        "holdBeats": 1,
+        "type": "Hold"
+      },
+      "8": {
+        "time": 3.97435927,
+        "lane": 0,
+        "subdivision": 8,
+        "holdBeats": 1,
+        "type": "Hold"
+      }
+    },
+    "10": {
+      "1": {
+        "time": 4.615385,
+        "lane": 0,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "14": {
+      "4": {
+        "time": 6.858975,
+        "lane": 0,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
     }
   },
   {},
@@ -191,6 +267,82 @@
         "subdivision": 8,
         "holdBeats": 9,
         "type": "Hold"
+      }
+    },
+    "8": {
+      "1": {
+        "time": 3.58974385,
+        "lane": 3,
+        "subdivision": 8,
+        "holdBeats": 7,
+        "type": "Hold"
+      },
+      "2": {
+        "time": 3.58974385,
+        "lane": 3,
+        "subdivision": 8,
+        "holdBeats": 7,
+        "type": "Hold"
+      },
+      "3": {
+        "time": 3.58974385,
+        "lane": 3,
+        "subdivision": 8,
+        "holdBeats": 7,
+        "type": "Hold"
+      },
+      "4": {
+        "time": 3.58974385,
+        "lane": 3,
+        "subdivision": 8,
+        "holdBeats": 7,
+        "type": "Hold"
+      },
+      "5": {
+        "time": 3.58974385,
+        "lane": 3,
+        "subdivision": 8,
+        "holdBeats": 7,
+        "type": "Hold"
+      },
+      "6": {
+        "time": 3.58974385,
+        "lane": 3,
+        "subdivision": 8,
+        "holdBeats": 7,
+        "type": "Hold"
+      },
+      "7": {
+        "time": 3.58974385,
+        "lane": 3,
+        "subdivision": 8,
+        "holdBeats": 7,
+        "type": "Hold"
+      },
+      "8": {
+        "time": 3.58974385,
+        "lane": 3,
+        "subdivision": 8,
+        "holdBeats": 7,
+        "type": "Hold"
+      }
+    },
+    "10": {
+      "1": {
+        "time": 4.615385,
+        "lane": 3,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "14": {
+      "3": {
+        "time": 6.79487228,
+        "lane": 3,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
       }
     }
   }
