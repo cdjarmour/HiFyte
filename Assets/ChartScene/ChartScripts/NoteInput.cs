@@ -7,6 +7,10 @@ using UnityEngine.EventSystems;
 public class NoteInput : MonoBehaviour, IPointerDownHandler, IPointerUpHandler {
 
     [SerializeField] private BuildDisplay _buildDisplay;
+    private const int MAX_SUBDIVISIONS = 9;
+    private const int LANES = 4;
+    private const int BEAT_HEIGHT = 540;
+    private const int LANE_WIDTH = 160;
 
     private int subdivisions;
 
@@ -17,7 +21,7 @@ public class NoteInput : MonoBehaviour, IPointerDownHandler, IPointerUpHandler {
     private Dictionary<int, Dictionary<int, Note>>[] chartLanes;
 
     void OnEnable() {
-        subdivisions = ChartSingleton.subdivisions;
+        subdivisions = ChartSingleton.instance.getSubdivisions();
     }
 
 
@@ -25,15 +29,15 @@ public class NoteInput : MonoBehaviour, IPointerDownHandler, IPointerUpHandler {
 
 
     public void OnPointerDown(PointerEventData eventData) {
-        subdivisions = ChartSingleton.subdivisions;
+        subdivisions = ChartSingleton.instance.getSubdivisions();
 
-        float beatClicked = ChartSingleton.baseBeat + (float)(eventData.position.y / 540);
-        int currLane = Mathf.FloorToInt(eventData.position.x / 160);
+        float beatClicked = ChartSingleton.instance.getBaseBeat() + (float)(eventData.position.y / BEAT_HEIGHT);
+        int currLane = Mathf.FloorToInt(eventData.position.x / LANE_WIDTH);
         int currBeat = Mathf.FloorToInt(beatClicked);
 
         int subBeat = Mathf.FloorToInt((beatClicked - (float)currBeat) * subdivisions) + 1;
 
-        float time = (currBeat - 1 + (float)(subBeat - 1) / subdivisions) * BeatManager.BeatLength(ChartSingleton.bpm);
+        float time = (currBeat - 1 + (float)(subBeat - 1) / subdivisions) * BeatManager.BeatLength(ChartSingleton.instance.getBPM());
 
         Debug.Log("relBeat: " + subBeat);
         Debug.Log("CurrBeat: " + currBeat);
@@ -41,10 +45,10 @@ public class NoteInput : MonoBehaviour, IPointerDownHandler, IPointerUpHandler {
         Debug.Log("Lane: " + currLane);
 
         if (eventData.button == PointerEventData.InputButton.Left) {
-            addNote(currLane, currBeat, subBeat, new Note(time, currLane, subdivisions, ChartSingleton.buildState));
+            addNote(currLane, currBeat, subBeat, new Note(time, currLane, subdivisions, ChartSingleton.instance.getState()));
 
-            if (ChartSingleton.buildState == "Hold") {
-                ChartSingleton.buildState = "Extending";
+            if (ChartSingleton.instance.getState() == "Hold") {
+                ChartSingleton.instance.setState("Extending");
                 baseNote = chartLanes[currLane][currBeat][subBeat];
                 baseBeat = currBeat;
                 baseSubBeat = subBeat;
@@ -55,8 +59,8 @@ public class NoteInput : MonoBehaviour, IPointerDownHandler, IPointerUpHandler {
 
             if (clickedNote != null && clickedNote.type == "Hold") {
                 int holdCounter = 0;
-                int holdBase = Mathf.FloorToInt(clickedNote.time / BeatManager.BeatLength(ChartSingleton.bpm)) + 1;
-                int holdSub = Mathf.RoundToInt((((clickedNote.time / BeatManager.BeatLength(ChartSingleton.bpm)) + 1) - holdBase) * clickedNote.subdivision);
+                int holdBase = Mathf.FloorToInt(clickedNote.time / BeatManager.BeatLength(ChartSingleton.instance.getBPM())) + 1;
+                int holdSub = Mathf.RoundToInt((((clickedNote.time / BeatManager.BeatLength(ChartSingleton.instance.getBPM())) + 1) - holdBase) * clickedNote.subdivision);
                 while (holdCounter < clickedNote.holdBeats + 1) {
 
                     if (holdSub == clickedNote.subdivision) {
@@ -84,16 +88,16 @@ public class NoteInput : MonoBehaviour, IPointerDownHandler, IPointerUpHandler {
 
 
     public void OnPointerUp(PointerEventData eventData) {
-        if (ChartSingleton.buildState == "Extending") {
-            subdivisions = ChartSingleton.subdivisions ;
-            ChartSingleton.buildState = "Hold";
-            float beatClicked = ChartSingleton.baseBeat + (float)(eventData.position.y / 540);
+        if (ChartSingleton.instance.getState() == "Extending") {
+            subdivisions = ChartSingleton.instance.getSubdivisions();
+            ChartSingleton.instance.setState("Hold");
+            float beatClicked = ChartSingleton.instance.getBaseBeat() + (float)(eventData.position.y / BEAT_HEIGHT);
             int currBeat = Mathf.FloorToInt(beatClicked);
 
             int subBeat = Mathf.FloorToInt((beatClicked - (float)currBeat) * subdivisions) + 1;
 
-            float time = (currBeat - 1 + (float)(subBeat - 1) / subdivisions) * BeatManager.BeatLength(ChartSingleton.bpm);
-            int holdBeats = Mathf.RoundToInt(((time - baseNote.time) / BeatManager.BeatLength(ChartSingleton.bpm)) * subdivisions);
+            float time = (currBeat - 1 + (float)(subBeat - 1) / subdivisions) * BeatManager.BeatLength(ChartSingleton.instance.getBPM());
+            int holdBeats = Mathf.RoundToInt(((time - baseNote.time) / BeatManager.BeatLength(ChartSingleton.instance.getBPM())) * subdivisions);
 
             if (holdBeats > 0) {
                 baseNote.holdBeats = holdBeats;
@@ -118,7 +122,7 @@ public class NoteInput : MonoBehaviour, IPointerDownHandler, IPointerUpHandler {
                 baseNote.type = "Normal";
             }
 
-            Debug.Log("hold length: " + Mathf.RoundToInt(((time - baseNote.time) / BeatManager.BeatLength(ChartSingleton.bpm)) * subdivisions));
+            Debug.Log("hold length: " + Mathf.RoundToInt(((time - baseNote.time) / BeatManager.BeatLength(ChartSingleton.instance.getBPM()) * subdivisions)));
 
 
 
@@ -129,61 +133,27 @@ public class NoteInput : MonoBehaviour, IPointerDownHandler, IPointerUpHandler {
 
     }
 
-    public List<NoteDisplay> getIntervalNotes() {
+    public List<NoteDisplay> getIntervalNotes(int upper) {
         List<NoteDisplay> notes = new List<NoteDisplay>();
-        int min = Mathf.FloorToInt(ChartSingleton.baseBeat);
-        int max = Mathf.CeilToInt(ChartSingleton.baseBeat + 1);
+        int min = Mathf.FloorToInt(ChartSingleton.instance.getBaseBeat());
+        int max = Mathf.CeilToInt(ChartSingleton.instance.getBaseBeat() + upper);
+
+
+
+
         float epsilon = 0.0001f;
         HashSet<Note> holdDuplicates = new HashSet<Note>();
         for (int i = 0; i < 4; i++) {
             for (int j = min; j <= max; j++) {
                 if (chartLanes[i].ContainsKey(j)) {
-                    for (int k = 1; k <= 9; k++) {
+                    for (int k = 1; k <= MAX_SUBDIVISIONS; k++) {
                         if (chartLanes[i][j].ContainsKey(k)) {
                             if (chartLanes[i][j][k].type == "Hold"
-                                || chartLanes[i][j][k].time >= (ChartSingleton.baseBeat - 2) * BeatManager.BeatLength(ChartSingleton.bpm) - epsilon
-                                && chartLanes[i][j][k].time <= (ChartSingleton.baseBeat + 1) * BeatManager.BeatLength(ChartSingleton.bpm) + epsilon) {
+                                || (chartLanes[i][j][k].time >= (ChartSingleton.instance.getBaseBeat() - 2) * BeatManager.BeatLength(ChartSingleton.instance.getBPM()) - epsilon
+                                && chartLanes[i][j][k].time <= (ChartSingleton.instance.getBaseBeat() + upper) * BeatManager.BeatLength(ChartSingleton.instance.getBPM()) + epsilon)) {
                                 if (chartLanes[i][j][k].type == "Hold") {
                                     if (!holdDuplicates.Contains(chartLanes[i][j][k])) {
-                                        holdDuplicates.Add(chartLanes[i][j][k]);
-                                    } else {
-                                        continue;
-                                    }
-                                }
-
-                                GameObject go = new GameObject("Note", typeof(NoteDisplay));
-                                NoteDisplay nd = go.GetComponent<NoteDisplay>();
-                                nd.setNote(chartLanes[i][j][k]);
-                                notes.Add(nd);
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-
-        return notes;
-    }
-
-
-    public List<NoteDisplay> getIntervalNotesScroll() {
-        List<NoteDisplay> notes = new List<NoteDisplay>();
-        int min = Mathf.FloorToInt(ChartSingleton.baseBeat);
-        int max = Mathf.CeilToInt(ChartSingleton.baseBeat + 3);
-        float epsilon = 0.0001f;
-        HashSet<Note> holdDuplicates = new HashSet<Note>();
-        for (int i = 0; i < 4; i++) {
-            for (int j = min; j <= max; j++) {
-                if (chartLanes[i].ContainsKey(j)) {
-                    for (int k = 1; k <= 9; k++) {
-                        if (chartLanes[i][j].ContainsKey(k)) {
-                            if (chartLanes[i][j][k].type == "Hold"
-                                || chartLanes[i][j][k].time >= (ChartSingleton.baseBeat - 2) * BeatManager.BeatLength(ChartSingleton.bpm) - epsilon
-                                && chartLanes[i][j][k].time <= (ChartSingleton.baseBeat + 2) * BeatManager.BeatLength(ChartSingleton.bpm) + epsilon) {
-                                if (chartLanes[i][j][k].type == "Hold") {
-                                    if (!holdDuplicates.Contains(chartLanes[i][j][k])) {
-                                        holdDuplicates.Add(chartLanes[i][j][k]);
+                                         holdDuplicates.Add(chartLanes[i][j][k]);
                                     } else {
                                         continue;
                                     }

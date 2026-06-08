@@ -12,7 +12,6 @@ public class ChartUI : MonoBehaviour
     [Header("Chart Builder")] 
     [SerializeField] private NoteInput _input;
     [SerializeField] private BuildDisplay _buildDisplay;
-    [SerializeField] private ChartSingleton _chartSingleton;
     [SerializeField] private Button save;
     [SerializeField] private Button exit;
     [Header("Note Types")]
@@ -49,19 +48,15 @@ public class ChartUI : MonoBehaviour
 
 
         placeNormal.onClick.AddListener(delegate {
-            ChartSingleton.buildState = "Normal";
+            ChartSingleton.instance.setState("Normal");
         });
 
         placeTap.onClick.AddListener(delegate {
-            ChartSingleton.buildState = "Tap";
+            ChartSingleton.instance.setState("Tap");
         });
 
         placeHold.onClick.AddListener(delegate {
-            ChartSingleton.buildState = "Hold";
-        });
-
-        placeHold.onClick.AddListener(delegate {
-            ChartSingleton.buildState = "Hold";
+            ChartSingleton.instance.setState("Hold");
         });
 
         save.onClick.AddListener(delegate {
@@ -72,7 +67,7 @@ public class ChartUI : MonoBehaviour
         exit.onClick.AddListener(delegate {
             _input.enabled = false;
             _buildDisplay.enabled = false;
-            _chartSingleton.enabled = false;
+            ChartSingleton.instance.resetData();
             save.gameObject.SetActive(false);
             exit.gameObject.SetActive(false);
             placeNormal.gameObject.SetActive(false);
@@ -150,9 +145,9 @@ public class ChartUI : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Return)) {
             building = true;
-            ChartSingleton.bpm = metaData.bpm;
+            ChartSingleton.instance.setBPM(metaData.bpm);
             _input.setLanes(ChartJSON.getNotes(metaData));
-            Debug.Log(ChartSingleton.bpm);
+            Debug.Log(ChartSingleton.instance.getBPM());
 
             nameInput.gameObject.SetActive(false);
             composerInput.gameObject.SetActive(false);
@@ -163,7 +158,6 @@ public class ChartUI : MonoBehaviour
             dataDisplay.gameObject.SetActive(false);
             _audioSource.time = 0;
             _audioSource.Stop();
-            _chartSingleton.enabled = true;
             _input.enabled = true;
             _buildDisplay.enabled = true;
             save.gameObject.SetActive(true);

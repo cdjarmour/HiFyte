@@ -60,6 +60,16 @@ public class Note {
 
     public Note(float time, int lane, int subdivision)
     : this(time, lane, subdivision, 0, "Normal") { }
+
+    public override bool Equals(object obj) {
+        if (obj is Note other)
+            return Mathf.Abs(time - other.time) < 0.0001f && lane == other.lane;
+        return false;
+    }
+
+    public override int GetHashCode() {
+        return HashCode.Combine(Mathf.RoundToInt(time * 10000), lane);
+    }
 }
 
 

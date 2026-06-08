@@ -8,7 +8,6 @@ public class BuildDisplay : MonoBehaviour
     [SerializeField] private Vector2 _location;
 
     [SerializeField] private AudioSource _audioSource;
-    [SerializeField] private ChartSingleton _builderData;
     [SerializeField] private NoteInput _input;
 
     [SerializeField] private Sprite lane8;
@@ -34,8 +33,8 @@ public class BuildDisplay : MonoBehaviour
 
 
         transform.position = _location;
-        noteHeight = 1080f / (ChartSingleton.subdivisions * 2);
-        totalBeats = Mathf.CeilToInt(_audioSource.clip.length / BeatManager.BeatLength(ChartSingleton.bpm));
+        noteHeight = 1080f / (ChartSingleton.instance.getSubdivisions() * 2);
+        totalBeats = Mathf.CeilToInt(_audioSource.clip.length / BeatManager.BeatLength(ChartSingleton.instance.getBPM()));
         Debug.Log("Total Beats:" + totalBeats);
         updateDisplay();
 
@@ -53,14 +52,12 @@ public class BuildDisplay : MonoBehaviour
                     nd.destroyVisual();
                 }
 
-                notes = _input.getIntervalNotesScroll();
-                int playStart = Mathf.FloorToInt(ChartSingleton.baseBeat);
+                notes = _input.getIntervalNotes(2);
+                int playStart = Mathf.FloorToInt(ChartSingleton.instance.getBaseBeat());
                 previousBeat = playStart - 1;
 
-                ChartSingleton.baseBeat = playStart;
-
-
-                _audioSource.time = previousBeat * BeatManager.BeatLength(ChartSingleton.bpm);
+                ChartSingleton.instance.setBaseBeat(playStart);
+                _audioSource.time = previousBeat * BeatManager.BeatLength(ChartSingleton.instance.getBPM());
 
                 _audioSource.Play();
                 playing = true;
@@ -69,7 +66,7 @@ public class BuildDisplay : MonoBehaviour
                     nd.destroyVisual();
                 }
 
-                notes = _input.getIntervalNotesScroll();
+                notes = _input.getIntervalNotes(1);
                 _audioSource.Stop();
                 playing = false;
                 transform.position = new Vector2(transform.position.x, 540);
@@ -84,15 +81,15 @@ public class BuildDisplay : MonoBehaviour
 
                 float scroll = Input.GetAxis("Mouse ScrollWheel");
                 if (scroll > 0f) {
-                    if (ChartSingleton.baseBeat < totalBeats - 1) {
+                    if (ChartSingleton.instance.getBaseBeat() < totalBeats - 1) {
                         transform.position = new Vector2(transform.position.x, transform.position.y - noteHeight);
-                        _builderData.BeatAdd();
+                        ChartSingleton.instance.BeatAdd();
                         updateDisplay();
                     }
                 } else if (scroll < 0f) {
-                    if (ChartSingleton.baseBeat > 1) {
+                    if (ChartSingleton.instance.getBaseBeat() > 1) {
                         transform.position = new Vector2(transform.position.x, transform.position.y + noteHeight);
-                        _builderData.BeatRemove();
+                        ChartSingleton.instance.BeatRemove();
                         updateDisplay();
                     }
                 }
@@ -100,36 +97,36 @@ public class BuildDisplay : MonoBehaviour
 
 
             if (Input.GetKeyDown(KeyCode.DownArrow)) {
-                if (ChartSingleton.baseBeat > 1) {
+                if (ChartSingleton.instance.getBaseBeat() > 1) {
                     transform.position = new Vector2(transform.position.x, transform.position.y + noteHeight);
-                    _builderData.BeatRemove();
+                    ChartSingleton.instance.BeatRemove();
                 }
                 updateDisplay();
 
             }
 
             if (Input.GetKeyDown(KeyCode.UpArrow)) {
-                if (ChartSingleton.baseBeat < totalBeats - 1) {
+                if (ChartSingleton.instance.getBaseBeat() < totalBeats - 1) {
                     transform.position = new Vector2(transform.position.x, transform.position.y - noteHeight);
 
-                    _builderData.BeatAdd();
+                    ChartSingleton.instance.BeatAdd();
                 }
                 updateDisplay();
             }
 
             if (Input.GetKeyDown(KeyCode.Space)) {
 
-                if (ChartSingleton.subdivisions == 8) {
+                if (ChartSingleton.instance.getSubdivisions() == 8) {
                     this.GetComponent<Image>().sprite = lane9;
-                    _builderData.setSubdivisions(9);
+                    ChartSingleton.instance.setSubdivisions(9);
                 } else {
                     this.GetComponent<Image>().sprite = lane8;
-                    _builderData.setSubdivisions(8);
+                    ChartSingleton.instance.setSubdivisions(8);
                 }
 
 
-                noteHeight = 1080f / (ChartSingleton.subdivisions * 2);
-                float fixBeat = Mathf.Round((ChartSingleton.baseBeat - Mathf.FloorToInt(ChartSingleton.baseBeat)) / (1f / ChartSingleton.subdivisions));
+                noteHeight = 1080f / (ChartSingleton.instance.getSubdivisions() * 2);
+                float fixBeat = Mathf.Round((ChartSingleton.instance.getBaseBeat() - Mathf.FloorToInt(ChartSingleton.instance.getBaseBeat())) / (1f / ChartSingleton.instance.getSubdivisions()));
                 transform.position = new Vector2(transform.position.x, 540 - fixBeat * noteHeight);
                 updateDisplay();
             }
@@ -145,16 +142,16 @@ public class BuildDisplay : MonoBehaviour
 
 
         } else {
-            float beatsTraversed = _audioSource.time / BeatManager.BeatLength(ChartSingleton.bpm);
+            float beatsTraversed = _audioSource.time / BeatManager.BeatLength(ChartSingleton.instance.getBPM());
 
             if (Mathf.FloorToInt(beatsTraversed) != previousBeat) {
                 previousBeat = Mathf.FloorToInt(beatsTraversed);
-                ChartSingleton.baseBeat = previousBeat + 1;
+                ChartSingleton.instance.setBaseBeat(previousBeat + 1);
                 foreach (NoteDisplay nd in notes) {
                     nd.destroyVisual();
                 }
 
-                notes = _input.getIntervalNotesScroll();
+                notes = _input.getIntervalNotes(2);
 
                 Debug.Log("test");
             }
@@ -163,7 +160,7 @@ public class BuildDisplay : MonoBehaviour
             transform.position = new Vector2(_location.x, _location.y + yOffset);
             foreach (NoteDisplay nd in notes) {
                 Transform root;
-                if (nd.transform.parent != ChartSingleton.canvas.transform) {
+                if (nd.transform.parent != ChartSingleton.instance.getCanvas().transform) {
                     root = nd.transform.parent;
                 } else {
                     root = nd.transform;
@@ -180,7 +177,7 @@ public class BuildDisplay : MonoBehaviour
             nd.destroyVisual();
         }
 
-        notes = _input.getIntervalNotes();
+        notes = _input.getIntervalNotes(1);
     }
 
     private void OnDisable() {
