@@ -7,44 +7,48 @@ public class VisualManager : MonoBehaviour
 {
 
     [SerializeField] AudioSource _song;
-    [SerializeField] GameObject note;
-    float bpm = 97;
-    float speed = 8;
-    float beatLength;
-    float timeNote;
-    float timeNeeded;
-    bool playing = false;
-    IReadOnlyList<Note> lane1;
-    IReadOnlyList<Note> lane2;
+    [SerializeField] GameObject notePrefab;
+    private int speed = 5;
+    private bool playing = false;
+    private List<Note>[] chart;
+    private List<GameObject>[] chartDisplay = new List<GameObject>[4];
+    private int[] laneIndex = new int[4];
 
     void Start() {
-        beatLength = 60f / bpm;
-        playing = false;
+        chart = ChartJSON.getSortedNotes("lumivoyage");
+        for (int i = 0; i < chart.Length; i++) {
+            laneIndex[i] = 0;
+            chartDisplay[i] = new List<GameObject>();
+            foreach (Note note in chart[i]) {
+                GameObject noteObject = Instantiate(notePrefab);
+                noteObject.SetActive(false);
+                noteObject.GetComponent<PlayNoteDisplay>().createDisplay(note, _song);
+                chartDisplay[i].Add(noteObject);
+            }
+        }
 
-    }
+
+        }
 
 
-    // Update is called once per frame
-    void Update() {
+        // Update is called once per frame
+        void Update() {
 
         if (Input.GetKeyDown(KeyCode.P)) {
-            _song.time = beatLength * 16;
             _song.Play();
-            timeNote = _song.time * 2;
-            playing = true;
+            playing = !playing;
         }
 
         if (!playing) return;
 
-        if (_song.time >= timeNote) {
-            Debug.Log("Bruh");
+        for (int i = 0; i < chartDisplay.Length; i++) {
+            if (laneIndex[i] >= chartDisplay[i].Count) continue;
+            if (chartDisplay[i][laneIndex[i]].GetComponent<PlayNoteDisplay>().getTime() <= _song.time + BeatManager.BeatLength(97) * (10f / speed)) {
+                chartDisplay[i][laneIndex[i]].SetActive(true);
+                laneIndex[i]++;
+            }
         }
 
-        timeNeeded = (timeNote - _song.time) / beatLength;
-
-        note.transform.position = new Vector3(note.transform.position.x, 0, timeNeeded * speed);
-
-    
     
     }
 

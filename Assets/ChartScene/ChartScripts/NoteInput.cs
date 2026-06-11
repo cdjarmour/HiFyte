@@ -191,7 +191,9 @@ public class NoteInput : MonoBehaviour, IPointerDownHandler, IPointerUpHandler {
             if (chartLanes[currLane][currBeat].ContainsKey(subBeat)) {
                 removed = chartLanes[currLane][currBeat][subBeat];
                 chartLanes[currLane][currBeat].Remove(subBeat);
-
+                if (chartLanes[currLane][currBeat].Count <= 0) {
+                    chartLanes[currLane].Remove(currBeat);
+                }
             }
         }
         return removed;

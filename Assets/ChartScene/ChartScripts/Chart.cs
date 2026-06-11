@@ -6,6 +6,7 @@ using System.IO.Enumeration;
 using Unity.VisualScripting;
 using UnityEngine;
 using Newtonsoft.Json;
+using System.Linq;
 
 
 [Serializable]
@@ -38,7 +39,7 @@ public class ChartData {
 
 
 [Serializable]
-public class Note {
+public class Note : IComparable<Note> {
     public float time;
     public int lane;
     public int subdivision;
@@ -52,7 +53,6 @@ public class Note {
         this.lane = lane;
         this.subdivision = subdivision;
         this.holdBeats = holdBeats;
-        this.type = nt;
     }
 
     public Note(float time, int lane, int subdivision, String nt)
@@ -70,6 +70,11 @@ public class Note {
     public override int GetHashCode() {
         return HashCode.Combine(Mathf.RoundToInt(time * 10000), lane);
     }
+
+    public int CompareTo(Note other) {
+        return time.CompareTo(other.time);
+    }
+
 }
 
 
@@ -125,5 +130,21 @@ public static class ChartJSON {
         sw.Write(noteJSON);
     }
 
+    public static List<Note>[] getSortedNotes(string name) {
+        Dictionary<int, Dictionary<int, Note>>[] notes = getNotes(getMetaData(name));
+        List<Note>[] sortedNotes = new List<Note>[4];
+
+        for (int i = 0; i < notes.Length; i++) {
+            sortedNotes[i] = new List<Note>();
+            foreach (Dictionary<int, Note> beats in notes[i].Values) {
+                foreach (Note note in beats.Values) {
+                    sortedNotes[i].Add(note);
+                }
+            }
+            sortedNotes[i].Sort();
+        }
+
+        return sortedNotes;
+    }
 }
 
