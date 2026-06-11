@@ -1,70 +1,12 @@
 [
   {
-    "2": {
+    "1": {
       "1": {
-        "time": 0.6185567,
+        "time": 0.0,
         "lane": 0,
         "subdivision": 8,
         "holdBeats": 0,
         "type": "Normal"
-      }
-    },
-    "3": {
-      "1": {
-        "time": 1.23711336,
-        "lane": 0,
-        "subdivision": 8,
-        "holdBeats": 7,
-        "type": "Hold"
-      },
-      "2": {
-        "time": 1.23711336,
-        "lane": 0,
-        "subdivision": 8,
-        "holdBeats": 7,
-        "type": "Hold"
-      },
-      "3": {
-        "time": 1.23711336,
-        "lane": 0,
-        "subdivision": 8,
-        "holdBeats": 7,
-        "type": "Hold"
-      },
-      "4": {
-        "time": 1.23711336,
-        "lane": 0,
-        "subdivision": 8,
-        "holdBeats": 7,
-        "type": "Hold"
-      },
-      "5": {
-        "time": 1.23711336,
-        "lane": 0,
-        "subdivision": 8,
-        "holdBeats": 7,
-        "type": "Hold"
-      },
-      "6": {
-        "time": 1.23711336,
-        "lane": 0,
-        "subdivision": 8,
-        "holdBeats": 7,
-        "type": "Hold"
-      },
-      "7": {
-        "time": 1.23711336,
-        "lane": 0,
-        "subdivision": 8,
-        "holdBeats": 7,
-        "type": "Hold"
-      },
-      "8": {
-        "time": 1.23711336,
-        "lane": 0,
-        "subdivision": 8,
-        "holdBeats": 7,
-        "type": "Hold"
       }
     },
     "4": {
@@ -82,491 +24,13 @@
         "lane": 0,
         "subdivision": 8,
         "holdBeats": 0,
-        "type": "Tap"
-      },
-      "3": {
-        "time": 2.628866,
-        "lane": 0,
-        "subdivision": 8,
-        "holdBeats": 0,
-        "type": "Tap"
-      },
-      "5": {
-        "time": 2.783505,
-        "lane": 0,
-        "subdivision": 8,
-        "holdBeats": 0,
-        "type": "Tap"
-      }
-    },
-    "6": {
-      "1": {
-        "time": 3.09278345,
-        "lane": 0,
-        "subdivision": 8,
-        "holdBeats": 0,
         "type": "Normal"
-      },
-      "6": {
-        "time": 3.436426,
-        "lane": 0,
-        "subdivision": 9,
-        "holdBeats": 3,
-        "type": "Hold"
-      },
-      "7": {
-        "time": 3.436426,
-        "lane": 0,
-        "subdivision": 9,
-        "holdBeats": 3,
-        "type": "Hold"
-      },
-      "8": {
-        "time": 3.436426,
-        "lane": 0,
-        "subdivision": 9,
-        "holdBeats": 3,
-        "type": "Hold"
-      },
-      "9": {
-        "time": 3.436426,
-        "lane": 0,
-        "subdivision": 9,
-        "holdBeats": 3,
-        "type": "Hold"
       }
     },
     "7": {
       "1": {
         "time": 3.71134,
         "lane": 0,
-        "subdivision": 9,
-        "holdBeats": 0,
-        "type": "Tap"
-      },
-      "8": {
-        "time": 4.2525773,
-        "lane": 0,
-        "subdivision": 8,
-        "holdBeats": 8,
-        "type": "Hold"
-      }
-    },
-    "8": {
-      "1": {
-        "time": 4.2525773,
-        "lane": 0,
-        "subdivision": 8,
-        "holdBeats": 8,
-        "type": "Hold"
-      },
-      "2": {
-        "time": 4.2525773,
-        "lane": 0,
-        "subdivision": 8,
-        "holdBeats": 8,
-        "type": "Hold"
-      },
-      "3": {
-        "time": 4.2525773,
-        "lane": 0,
-        "subdivision": 8,
-        "holdBeats": 8,
-        "type": "Hold"
-      },
-      "4": {
-        "time": 4.2525773,
-        "lane": 0,
-        "subdivision": 8,
-        "holdBeats": 8,
-        "type": "Hold"
-      },
-      "5": {
-        "time": 4.2525773,
-        "lane": 0,
-        "subdivision": 8,
-        "holdBeats": 8,
-        "type": "Hold"
-      },
-      "6": {
-        "time": 4.2525773,
-        "lane": 0,
-        "subdivision": 8,
-        "holdBeats": 8,
-        "type": "Hold"
-      },
-      "7": {
-        "time": 4.2525773,
-        "lane": 0,
-        "subdivision": 8,
-        "holdBeats": 8,
-        "type": "Hold"
-      },
-      "8": {
-        "time": 4.2525773,
-        "lane": 0,
-        "subdivision": 8,
-        "holdBeats": 8,
-        "type": "Hold"
-      }
-    },
-    "10": {
-      "3": {
-        "time": 5.721649,
-        "lane": 0,
-        "subdivision": 8,
-        "holdBeats": 0,
-        "type": "Normal"
-      }
-    },
-    "11": {
-      "2": {
-        "time": 6.26288652,
-        "lane": 0,
-        "subdivision": 8,
-        "holdBeats": 0,
-        "type": "Normal"
-      }
-    },
-    "14": {
-      "3": {
-        "time": 8.195876,
-        "lane": 0,
-        "subdivision": 8,
-        "holdBeats": 0,
-        "type": "Normal"
-      },
-      "2": {
-        "time": 8.109965,
-        "lane": 0,
-        "subdivision": 9,
-        "holdBeats": 0,
-        "type": "Normal"
-      }
-    },
-    "15": {
-      "1": {
-        "time": 8.659794,
-        "lane": 0,
-        "subdivision": 8,
-        "holdBeats": 2,
-        "type": "Hold"
-      },
-      "2": {
-        "time": 8.659794,
-        "lane": 0,
-        "subdivision": 8,
-        "holdBeats": 2,
-        "type": "Hold"
-      },
-      "3": {
-        "time": 8.659794,
-        "lane": 0,
-        "subdivision": 8,
-        "holdBeats": 2,
-        "type": "Hold"
-      },
-      "4": {
-        "time": 8.891752,
-        "lane": 0,
-        "subdivision": 8,
-        "holdBeats": 0,
-        "type": "Tap"
-      },
-      "6": {
-        "time": 9.04639149,
-        "lane": 0,
-        "subdivision": 8,
-        "holdBeats": 0,
-        "type": "Tap"
-      }
-    },
-    "12": {
-      "1": {
-        "time": 6.8041234,
-        "lane": 0,
-        "subdivision": 8,
-        "holdBeats": 3,
-        "type": "Hold"
-      },
-      "2": {
-        "time": 6.8041234,
-        "lane": 0,
-        "subdivision": 8,
-        "holdBeats": 3,
-        "type": "Hold"
-      },
-      "3": {
-        "time": 6.8041234,
-        "lane": 0,
-        "subdivision": 8,
-        "holdBeats": 3,
-        "type": "Hold"
-      },
-      "4": {
-        "time": 6.8041234,
-        "lane": 0,
-        "subdivision": 8,
-        "holdBeats": 3,
-        "type": "Hold"
-      }
-    },
-    "16": {
-      "1": {
-        "time": 9.27835,
-        "lane": 0,
-        "subdivision": 8,
-        "holdBeats": 0,
-        "type": "Normal"
-      },
-      "2": {
-        "time": 9.35567,
-        "lane": 0,
-        "subdivision": 8,
-        "holdBeats": 0,
-        "type": "Normal"
-      },
-      "4": {
-        "time": 9.484536,
-        "lane": 0,
-        "subdivision": 9,
-        "holdBeats": 0,
-        "type": "Normal"
-      },
-      "9": {
-        "time": 9.828178,
-        "lane": 0,
-        "subdivision": 9,
-        "holdBeats": 0,
-        "type": "Normal"
-      }
-    },
-    "17": {
-      "1": {
-        "time": 9.896907,
-        "lane": 0,
-        "subdivision": 9,
-        "holdBeats": 0,
-        "type": "Normal"
-      }
-    }
-  },
-  {
-    "6": {
-      "5": {
-        "time": 3.4020617,
-        "lane": 1,
-        "subdivision": 8,
-        "holdBeats": 0,
-        "type": "Normal"
-      }
-    },
-    "7": {
-      "3": {
-        "time": 3.86597919,
-        "lane": 1,
-        "subdivision": 8,
-        "holdBeats": 0,
-        "type": "Normal"
-      }
-    },
-    "8": {
-      "3": {
-        "time": 4.48453569,
-        "lane": 1,
-        "subdivision": 8,
-        "holdBeats": 0,
-        "type": "Normal"
-      },
-      "7": {
-        "time": 4.793814,
-        "lane": 1,
-        "subdivision": 8,
-        "holdBeats": 0,
-        "type": "Normal"
-      }
-    },
-    "10": {
-      "3": {
-        "time": 5.721649,
-        "lane": 1,
-        "subdivision": 8,
-        "holdBeats": 0,
-        "type": "Normal"
-      }
-    },
-    "13": {
-      "1": {
-        "time": 7.42268,
-        "lane": 1,
-        "subdivision": 8,
-        "holdBeats": 6,
-        "type": "Hold"
-      },
-      "2": {
-        "time": 7.42268,
-        "lane": 1,
-        "subdivision": 8,
-        "holdBeats": 6,
-        "type": "Hold"
-      },
-      "3": {
-        "time": 7.42268,
-        "lane": 1,
-        "subdivision": 8,
-        "holdBeats": 6,
-        "type": "Hold"
-      },
-      "4": {
-        "time": 7.42268,
-        "lane": 1,
-        "subdivision": 8,
-        "holdBeats": 6,
-        "type": "Hold"
-      },
-      "5": {
-        "time": 7.42268,
-        "lane": 1,
-        "subdivision": 8,
-        "holdBeats": 6,
-        "type": "Hold"
-      },
-      "6": {
-        "time": 7.42268,
-        "lane": 1,
-        "subdivision": 8,
-        "holdBeats": 6,
-        "type": "Hold"
-      },
-      "7": {
-        "time": 7.42268,
-        "lane": 1,
-        "subdivision": 8,
-        "holdBeats": 6,
-        "type": "Hold"
-      }
-    },
-    "16": {
-      "6": {
-        "time": 9.621993,
-        "lane": 1,
-        "subdivision": 9,
-        "holdBeats": 0,
-        "type": "Normal"
-      }
-    },
-    "17": {
-      "1": {
-        "time": 9.896907,
-        "lane": 1,
-        "subdivision": 9,
-        "holdBeats": 0,
-        "type": "Normal"
-      }
-    },
-    "3": {
-      "1": {
-        "time": 1.23711336,
-        "lane": 1,
-        "subdivision": 8,
-        "holdBeats": 5,
-        "type": "Hold"
-      },
-      "2": {
-        "time": 1.23711336,
-        "lane": 1,
-        "subdivision": 8,
-        "holdBeats": 5,
-        "type": "Hold"
-      },
-      "3": {
-        "time": 1.23711336,
-        "lane": 1,
-        "subdivision": 8,
-        "holdBeats": 5,
-        "type": "Hold"
-      },
-      "4": {
-        "time": 1.23711336,
-        "lane": 1,
-        "subdivision": 8,
-        "holdBeats": 5,
-        "type": "Hold"
-      },
-      "5": {
-        "time": 1.23711336,
-        "lane": 1,
-        "subdivision": 8,
-        "holdBeats": 5,
-        "type": "Hold"
-      },
-      "6": {
-        "time": 1.23711336,
-        "lane": 1,
-        "subdivision": 8,
-        "holdBeats": 5,
-        "type": "Hold"
-      }
-    },
-    "4": {
-      "1": {
-        "time": 1.85567,
-        "lane": 1,
-        "subdivision": 8,
-        "holdBeats": 4,
-        "type": "Hold"
-      },
-      "2": {
-        "time": 1.85567,
-        "lane": 1,
-        "subdivision": 8,
-        "holdBeats": 4,
-        "type": "Hold"
-      },
-      "3": {
-        "time": 1.85567,
-        "lane": 1,
-        "subdivision": 8,
-        "holdBeats": 4,
-        "type": "Hold"
-      },
-      "4": {
-        "time": 1.85567,
-        "lane": 1,
-        "subdivision": 8,
-        "holdBeats": 4,
-        "type": "Hold"
-      },
-      "5": {
-        "time": 1.85567,
-        "lane": 1,
-        "subdivision": 8,
-        "holdBeats": 4,
-        "type": "Hold"
-      }
-    }
-  },
-  {
-    "6": {
-      "5": {
-        "time": 3.4020617,
-        "lane": 2,
-        "subdivision": 8,
-        "holdBeats": 0,
-        "type": "Normal"
-      }
-    },
-    "7": {
-      "3": {
-        "time": 3.86597919,
-        "lane": 2,
-        "subdivision": 8,
-        "holdBeats": 0,
-        "type": "Normal"
-      },
-      "6": {
-        "time": 4.097938,
-        "lane": 2,
         "subdivision": 8,
         "holdBeats": 0,
         "type": "Normal"
@@ -575,261 +39,95 @@
     "8": {
       "1": {
         "time": 4.329897,
-        "lane": 2,
+        "lane": 0,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      },
+      "5": {
+        "time": 4.639175,
+        "lane": 0,
         "subdivision": 8,
         "holdBeats": 0,
         "type": "Normal"
       }
     },
     "9": {
-      "3": {
-        "time": 5.10309267,
-        "lane": 2,
-        "subdivision": 8,
-        "holdBeats": 0,
-        "type": "Normal"
-      },
-      "6": {
-        "time": 5.33505154,
-        "lane": 2,
-        "subdivision": 8,
-        "holdBeats": 0,
-        "type": "Normal"
-      }
-    },
-    "11": {
-      "2": {
-        "time": 6.26288652,
-        "lane": 2,
-        "subdivision": 8,
-        "holdBeats": 0,
-        "type": "Normal"
-      },
-      "8": {
-        "time": 6.726804,
-        "lane": 2,
-        "subdivision": 8,
-        "holdBeats": 0,
-        "type": "Normal"
-      }
-    },
-    "13": {
       "1": {
-        "time": 7.42268,
-        "lane": 2,
+        "time": 4.94845343,
+        "lane": 0,
         "subdivision": 8,
-        "holdBeats": 6,
-        "type": "Hold"
-      },
-      "2": {
-        "time": 7.42268,
-        "lane": 2,
-        "subdivision": 8,
-        "holdBeats": 6,
-        "type": "Hold"
-      },
-      "3": {
-        "time": 7.42268,
-        "lane": 2,
-        "subdivision": 8,
-        "holdBeats": 6,
-        "type": "Hold"
-      },
-      "4": {
-        "time": 7.42268,
-        "lane": 2,
-        "subdivision": 8,
-        "holdBeats": 6,
-        "type": "Hold"
-      },
-      "5": {
-        "time": 7.42268,
-        "lane": 2,
-        "subdivision": 8,
-        "holdBeats": 6,
-        "type": "Hold"
-      },
-      "6": {
-        "time": 7.42268,
-        "lane": 2,
-        "subdivision": 8,
-        "holdBeats": 6,
-        "type": "Hold"
-      },
-      "7": {
-        "time": 7.42268,
-        "lane": 2,
-        "subdivision": 8,
-        "holdBeats": 6,
-        "type": "Hold"
-      }
-    },
-    "16": {
-      "3": {
-        "time": 9.415807,
-        "lane": 2,
-        "subdivision": 9,
         "holdBeats": 0,
         "type": "Normal"
-      }
-    },
-    "17": {
-      "2": {
-        "time": 9.965635,
-        "lane": 2,
-        "subdivision": 9,
-        "holdBeats": 0,
-        "type": "Normal"
-      }
-    },
-    "3": {
-      "1": {
-        "time": 1.23711336,
-        "lane": 2,
-        "subdivision": 8,
-        "holdBeats": 5,
-        "type": "Hold"
-      },
-      "2": {
-        "time": 1.23711336,
-        "lane": 2,
-        "subdivision": 8,
-        "holdBeats": 5,
-        "type": "Hold"
-      },
-      "3": {
-        "time": 1.23711336,
-        "lane": 2,
-        "subdivision": 8,
-        "holdBeats": 5,
-        "type": "Hold"
-      },
-      "4": {
-        "time": 1.23711336,
-        "lane": 2,
-        "subdivision": 8,
-        "holdBeats": 5,
-        "type": "Hold"
-      },
-      "5": {
-        "time": 1.23711336,
-        "lane": 2,
-        "subdivision": 8,
-        "holdBeats": 5,
-        "type": "Hold"
-      },
-      "6": {
-        "time": 1.23711336,
-        "lane": 2,
-        "subdivision": 8,
-        "holdBeats": 5,
-        "type": "Hold"
-      }
-    },
-    "4": {
-      "1": {
-        "time": 1.85567,
-        "lane": 2,
-        "subdivision": 8,
-        "holdBeats": 4,
-        "type": "Hold"
-      },
-      "2": {
-        "time": 1.85567,
-        "lane": 2,
-        "subdivision": 8,
-        "holdBeats": 4,
-        "type": "Hold"
-      },
-      "3": {
-        "time": 1.85567,
-        "lane": 2,
-        "subdivision": 8,
-        "holdBeats": 4,
-        "type": "Hold"
-      },
-      "4": {
-        "time": 1.85567,
-        "lane": 2,
-        "subdivision": 8,
-        "holdBeats": 4,
-        "type": "Hold"
-      },
-      "5": {
-        "time": 1.85567,
-        "lane": 2,
-        "subdivision": 8,
-        "holdBeats": 4,
-        "type": "Hold"
       }
     }
   },
   {
-    "2": {
+    "3": {
       "1": {
-        "time": 0.6185567,
-        "lane": 3,
+        "time": 1.23711336,
+        "lane": 1,
         "subdivision": 8,
         "holdBeats": 0,
         "type": "Normal"
       }
     },
+    "5": {
+      "1": {
+        "time": 2.47422671,
+        "lane": 1,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "7": {
+      "1": {
+        "time": 3.71134,
+        "lane": 1,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    }
+  },
+  {
     "3": {
       "1": {
         "time": 1.23711336,
+        "lane": 2,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "5": {
+      "1": {
+        "time": 2.47422671,
+        "lane": 2,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "7": {
+      "1": {
+        "time": 3.71134,
+        "lane": 2,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    }
+  },
+  {
+    "1": {
+      "1": {
+        "time": 0.0,
         "lane": 3,
         "subdivision": 8,
-        "holdBeats": 7,
-        "type": "Hold"
-      },
-      "2": {
-        "time": 1.23711336,
-        "lane": 3,
-        "subdivision": 8,
-        "holdBeats": 7,
-        "type": "Hold"
-      },
-      "3": {
-        "time": 1.23711336,
-        "lane": 3,
-        "subdivision": 8,
-        "holdBeats": 7,
-        "type": "Hold"
-      },
-      "4": {
-        "time": 1.23711336,
-        "lane": 3,
-        "subdivision": 8,
-        "holdBeats": 7,
-        "type": "Hold"
-      },
-      "5": {
-        "time": 1.23711336,
-        "lane": 3,
-        "subdivision": 8,
-        "holdBeats": 7,
-        "type": "Hold"
-      },
-      "6": {
-        "time": 1.23711336,
-        "lane": 3,
-        "subdivision": 8,
-        "holdBeats": 7,
-        "type": "Hold"
-      },
-      "7": {
-        "time": 1.23711336,
-        "lane": 3,
-        "subdivision": 8,
-        "holdBeats": 7,
-        "type": "Hold"
-      },
-      "8": {
-        "time": 1.23711336,
-        "lane": 3,
-        "subdivision": 8,
-        "holdBeats": 7,
-        "type": "Hold"
+        "holdBeats": 0,
+        "type": "Normal"
       }
     },
     "4": {
@@ -847,293 +145,30 @@
         "lane": 3,
         "subdivision": 8,
         "holdBeats": 0,
-        "type": "Tap"
-      },
-      "3": {
-        "time": 2.628866,
-        "lane": 3,
-        "subdivision": 8,
-        "holdBeats": 0,
-        "type": "Tap"
-      },
-      "5": {
-        "time": 2.783505,
-        "lane": 3,
-        "subdivision": 8,
-        "holdBeats": 0,
-        "type": "Tap"
-      }
-    },
-    "6": {
-      "1": {
-        "time": 3.09278345,
-        "lane": 3,
-        "subdivision": 8,
-        "holdBeats": 0,
         "type": "Normal"
-      },
-      "6": {
-        "time": 3.436426,
-        "lane": 3,
-        "subdivision": 9,
-        "holdBeats": 3,
-        "type": "Hold"
-      },
-      "7": {
-        "time": 3.436426,
-        "lane": 3,
-        "subdivision": 9,
-        "holdBeats": 3,
-        "type": "Hold"
-      },
-      "8": {
-        "time": 3.436426,
-        "lane": 3,
-        "subdivision": 9,
-        "holdBeats": 3,
-        "type": "Hold"
-      },
-      "9": {
-        "time": 3.436426,
-        "lane": 3,
-        "subdivision": 9,
-        "holdBeats": 3,
-        "type": "Hold"
       }
     },
     "7": {
       "1": {
         "time": 3.71134,
         "lane": 3,
-        "subdivision": 9,
-        "holdBeats": 0,
-        "type": "Tap"
-      },
-      "8": {
-        "time": 4.2525773,
-        "lane": 3,
         "subdivision": 8,
-        "holdBeats": 8,
-        "type": "Hold"
+        "holdBeats": 0,
+        "type": "Normal"
       }
     },
     "8": {
-      "1": {
-        "time": 4.2525773,
-        "lane": 3,
-        "subdivision": 8,
-        "holdBeats": 8,
-        "type": "Hold"
-      },
-      "2": {
-        "time": 4.2525773,
-        "lane": 3,
-        "subdivision": 8,
-        "holdBeats": 8,
-        "type": "Hold"
-      },
-      "3": {
-        "time": 4.2525773,
-        "lane": 3,
-        "subdivision": 8,
-        "holdBeats": 8,
-        "type": "Hold"
-      },
-      "4": {
-        "time": 4.2525773,
-        "lane": 3,
-        "subdivision": 8,
-        "holdBeats": 8,
-        "type": "Hold"
-      },
-      "5": {
-        "time": 4.2525773,
-        "lane": 3,
-        "subdivision": 8,
-        "holdBeats": 8,
-        "type": "Hold"
-      },
       "6": {
-        "time": 4.2525773,
-        "lane": 3,
-        "subdivision": 8,
-        "holdBeats": 8,
-        "type": "Hold"
-      },
-      "7": {
-        "time": 4.2525773,
-        "lane": 3,
-        "subdivision": 8,
-        "holdBeats": 8,
-        "type": "Hold"
-      },
-      "8": {
-        "time": 4.2525773,
-        "lane": 3,
-        "subdivision": 8,
-        "holdBeats": 8,
-        "type": "Hold"
-      }
-    },
-    "10": {
-      "8": {
-        "time": 6.10824728,
-        "lane": 3,
-        "subdivision": 8,
-        "holdBeats": 0,
-        "type": "Normal"
-      }
-    },
-    "11": {
-      "8": {
-        "time": 6.726804,
-        "lane": 3,
-        "subdivision": 8,
-        "holdBeats": 0,
-        "type": "Normal"
-      }
-    },
-    "14": {
-      "3": {
-        "time": 8.195876,
-        "lane": 3,
-        "subdivision": 8,
-        "holdBeats": 0,
-        "type": "Normal"
-      },
-      "2": {
-        "time": 8.109965,
-        "lane": 3,
-        "subdivision": 9,
-        "holdBeats": 0,
-        "type": "Normal"
-      }
-    },
-    "15": {
-      "1": {
-        "time": 8.659794,
-        "lane": 3,
-        "subdivision": 8,
-        "holdBeats": 5,
-        "type": "Hold"
-      },
-      "2": {
-        "time": 8.659794,
-        "lane": 3,
-        "subdivision": 8,
-        "holdBeats": 5,
-        "type": "Hold"
-      },
-      "3": {
-        "time": 8.659794,
-        "lane": 3,
-        "subdivision": 8,
-        "holdBeats": 5,
-        "type": "Hold"
-      },
-      "4": {
-        "time": 8.659794,
-        "lane": 3,
-        "subdivision": 8,
-        "holdBeats": 5,
-        "type": "Hold"
-      },
-      "5": {
-        "time": 8.659794,
-        "lane": 3,
-        "subdivision": 8,
-        "holdBeats": 5,
-        "type": "Hold"
-      },
-      "6": {
-        "time": 8.659794,
-        "lane": 3,
-        "subdivision": 8,
-        "holdBeats": 5,
-        "type": "Hold"
-      }
-    },
-    "12": {
-      "4": {
-        "time": 7.03608227,
-        "lane": 3,
-        "subdivision": 8,
-        "holdBeats": 4,
-        "type": "Hold"
-      },
-      "5": {
-        "time": 7.03608227,
-        "lane": 3,
-        "subdivision": 8,
-        "holdBeats": 4,
-        "type": "Hold"
-      },
-      "6": {
-        "time": 7.03608227,
-        "lane": 3,
-        "subdivision": 8,
-        "holdBeats": 4,
-        "type": "Hold"
-      },
-      "7": {
-        "time": 7.03608227,
-        "lane": 3,
-        "subdivision": 8,
-        "holdBeats": 4,
-        "type": "Hold"
-      },
-      "8": {
-        "time": 7.03608227,
-        "lane": 3,
-        "subdivision": 8,
-        "holdBeats": 4,
-        "type": "Hold"
-      }
-    },
-    "16": {
-      "1": {
-        "time": 9.27835,
-        "lane": 3,
-        "subdivision": 8,
-        "holdBeats": 0,
-        "type": "Normal"
-      },
-      "2": {
-        "time": 9.35567,
-        "lane": 3,
-        "subdivision": 8,
-        "holdBeats": 0,
-        "type": "Normal"
-      },
-      "5": {
-        "time": 9.553265,
+        "time": 4.673539,
         "lane": 3,
         "subdivision": 9,
         "holdBeats": 0,
         "type": "Normal"
       },
-      "8": {
-        "time": 9.75945,
+      "5": {
+        "time": 4.60481071,
         "lane": 3,
         "subdivision": 9,
-        "holdBeats": 0,
-        "type": "Normal"
-      }
-    },
-    "17": {
-      "1": {
-        "time": 9.896907,
-        "lane": 3,
-        "subdivision": 9,
-        "holdBeats": 0,
-        "type": "Normal"
-      }
-    },
-    "1": {
-      "6": {
-        "time": 0.386597931,
-        "lane": 3,
-        "subdivision": 8,
         "holdBeats": 0,
         "type": "Normal"
       }
