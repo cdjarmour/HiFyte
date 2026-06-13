@@ -7,7 +7,7 @@ public class PlayNoteDisplay : MonoBehaviour
     Note note;
     AudioSource song;
     float timeRemaining;
-    float beatLength = BeatManager.BeatLength(97);
+    float beatLength = BeatManager.BeatLength(174);
 
 
     public void createDisplay(Note note, AudioSource song) {
@@ -19,10 +19,10 @@ public class PlayNoteDisplay : MonoBehaviour
     // Update is called once per frame
     void Update() {
         timeRemaining = (note.time - song.time) / beatLength;
-        transform.position = new Vector3(-1.2f + (note.lane * 0.8f), 0, timeRemaining * 5);
+        transform.position = new Vector3(-1.2f + (note.lane * 0.8f), 0, timeRemaining * 4);
 
 
-        if (timeRemaining <= -(beatLength / 10f)) {
+        if (timeRemaining <= -(beatLength / 2f)) {
             gameObject.SetActive(false);
         }
     }
