@@ -1,14 +1,5 @@
 [
   {
-    "1": {
-      "1": {
-        "time": 0.0,
-        "lane": 0,
-        "subdivision": 8,
-        "holdBeats": 0,
-        "type": "Normal"
-      }
-    },
     "4": {
       "1": {
         "time": 1.85567,
@@ -44,86 +35,118 @@
         "holdBeats": 0,
         "type": "Normal"
       },
+      "3": {
+        "time": 4.48453569,
+        "lane": 0,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "10": {
+      "1": {
+        "time": 5.56701,
+        "lane": 0,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    }
+  },
+  {
+    "10": {
+      "1": {
+        "time": 5.56701,
+        "lane": 1,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "5": {
+      "1": {
+        "time": 2.47422671,
+        "lane": 1,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "7": {
+      "1": {
+        "time": 3.71134,
+        "lane": 1,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "8": {
       "5": {
         "time": 4.639175,
-        "lane": 0,
+        "lane": 1,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    }
+  },
+  {
+    "10": {
+      "1": {
+        "time": 5.56701,
+        "lane": 2,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "5": {
+      "1": {
+        "time": 2.47422671,
+        "lane": 2,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "7": {
+      "1": {
+        "time": 3.71134,
+        "lane": 2,
         "subdivision": 8,
         "holdBeats": 0,
         "type": "Normal"
       }
     },
     "9": {
+      "3": {
+        "time": 5.10309267,
+        "lane": 2,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      },
+      "7": {
+        "time": 5.412371,
+        "lane": 2,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    }
+  },
+  {
+    "9": {
       "1": {
         "time": 4.94845343,
-        "lane": 0,
+        "lane": 3,
         "subdivision": 8,
         "holdBeats": 0,
         "type": "Normal"
-      }
-    }
-  },
-  {
-    "3": {
-      "1": {
-        "time": 1.23711336,
-        "lane": 1,
-        "subdivision": 8,
-        "holdBeats": 0,
-        "type": "Normal"
-      }
-    },
-    "5": {
-      "1": {
-        "time": 2.47422671,
-        "lane": 1,
-        "subdivision": 8,
-        "holdBeats": 0,
-        "type": "Normal"
-      }
-    },
-    "7": {
-      "1": {
-        "time": 3.71134,
-        "lane": 1,
-        "subdivision": 8,
-        "holdBeats": 0,
-        "type": "Normal"
-      }
-    }
-  },
-  {
-    "3": {
-      "1": {
-        "time": 1.23711336,
-        "lane": 2,
-        "subdivision": 8,
-        "holdBeats": 0,
-        "type": "Normal"
-      }
-    },
-    "5": {
-      "1": {
-        "time": 2.47422671,
-        "lane": 2,
-        "subdivision": 8,
-        "holdBeats": 0,
-        "type": "Normal"
-      }
-    },
-    "7": {
-      "1": {
-        "time": 3.71134,
-        "lane": 2,
-        "subdivision": 8,
-        "holdBeats": 0,
-        "type": "Normal"
-      }
-    }
-  },
-  {
-    "1": {
-      "1": {
-        "time": 0.0,
+      },
+      "5": {
+        "time": 5.257732,
         "lane": 3,
         "subdivision": 8,
         "holdBeats": 0,
@@ -158,17 +181,26 @@
       }
     },
     "8": {
-      "6": {
-        "time": 4.673539,
+      "7": {
+        "time": 4.793814,
         "lane": 3,
-        "subdivision": 9,
+        "subdivision": 8,
         "holdBeats": 0,
         "type": "Normal"
       },
-      "5": {
-        "time": 4.60481071,
+      "1": {
+        "time": 4.329897,
         "lane": 3,
-        "subdivision": 9,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "10": {
+      "1": {
+        "time": 5.56701,
+        "lane": 3,
+        "subdivision": 8,
         "holdBeats": 0,
         "type": "Normal"
       }
