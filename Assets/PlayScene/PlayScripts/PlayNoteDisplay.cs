@@ -2,27 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayNoteDisplay : MonoBehaviour
-{
-    Note note;
-    AudioSource song;
-    float timeRemaining;
-    float beatLength = BeatManager.BeatLength(174);
+public class PlayNoteDisplay : MonoBehaviour {
+    private Note note;
+    private AudioSource song;
+    private AudioClip hitSound;
+    private float beatLength = BeatManager.BeatLength(180);
+    private bool played = false;
 
-
-    public void createDisplay(Note note, AudioSource song) {
+    public void createDisplay(Note note, AudioSource song, AudioClip hitSound) {
         this.note = note;
         this.song = song;
+        this.hitSound = hitSound;
     }
 
-
-    // Update is called once per frame
     void Update() {
-        timeRemaining = (note.time - song.time) / beatLength;
-        transform.position = new Vector3(-1.2f + (note.lane * 0.8f), 0, timeRemaining * 4);
+        float timeRemaining = (note.time - song.time) / beatLength;
+        transform.position = new Vector3(-1.2f + (note.lane * 0.8f), 0, timeRemaining * 2);
 
-
-        if (timeRemaining <= -(beatLength / 2f)) {
+        if (!played && song.time >= note.time * 1.5f) {
+            played = true;
             gameObject.SetActive(false);
         }
     }

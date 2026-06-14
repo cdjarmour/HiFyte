@@ -1,9 +1,21 @@
 [
+  {},
+  {},
+  {},
   {
+    "6": {
+      "1": {
+        "time": 1.66666675,
+        "lane": 3,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
     "7": {
       "1": {
         "time": 2.0,
-        "lane": 0,
+        "lane": 3,
         "subdivision": 8,
         "holdBeats": 0,
         "type": "Normal"
@@ -12,57 +24,87 @@
     "8": {
       "1": {
         "time": 2.33333349,
-        "lane": 0,
-        "subdivision": 8,
-        "holdBeats": 0,
-        "type": "Normal"
-      }
-    }
-  },
-  {
-    "4": {
-      "5": {
-        "time": 1.16666675,
-        "lane": 1,
+        "lane": 3,
         "subdivision": 8,
         "holdBeats": 0,
         "type": "Normal"
       }
     },
-    "6": {
+    "9": {
       "1": {
-        "time": 1.66666675,
-        "lane": 1,
-        "subdivision": 8,
-        "holdBeats": 0,
-        "type": "Normal"
-      }
-    }
-  },
-  {
-    "5": {
-      "1": {
-        "time": 1.33333337,
-        "lane": 2,
+        "time": 2.66666675,
+        "lane": 3,
         "subdivision": 8,
         "holdBeats": 0,
         "type": "Normal"
       }
     },
-    "6": {
+    "10": {
       "1": {
-        "time": 1.66666675,
-        "lane": 2,
+        "time": 3.0,
+        "lane": 3,
         "subdivision": 8,
         "holdBeats": 0,
         "type": "Normal"
       }
-    }
-  },
-  {
-    "5": {
-      "5": {
-        "time": 1.5,
+    },
+    "11": {
+      "1": {
+        "time": 3.33333349,
+        "lane": 3,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "12": {
+      "1": {
+        "time": 3.66666675,
+        "lane": 3,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "13": {
+      "1": {
+        "time": 4.0,
+        "lane": 3,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "14": {
+      "1": {
+        "time": 4.33333349,
+        "lane": 3,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "15": {
+      "1": {
+        "time": 4.666667,
+        "lane": 3,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "16": {
+      "1": {
+        "time": 5.0,
+        "lane": 3,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "17": {
+      "1": {
+        "time": 5.33333349,
         "lane": 3,
         "subdivision": 8,
         "holdBeats": 0,
