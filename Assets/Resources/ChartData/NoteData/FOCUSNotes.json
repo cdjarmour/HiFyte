@@ -94,6 +94,24 @@
         "holdBeats": 0,
         "type": "Normal"
       }
+    },
+    "1": {
+      "1": {
+        "time": 0.0,
+        "lane": 3,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "2": {
+      "1": {
+        "time": 0.363636374,
+        "lane": 3,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
     }
   }
 ]
