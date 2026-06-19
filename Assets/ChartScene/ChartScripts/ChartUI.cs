@@ -48,15 +48,15 @@ public class ChartUI : MonoBehaviour
 
 
         placeNormal.onClick.AddListener(delegate {
-            ChartSingleton.instance.setState("Normal");
+            ChartSingleton.instance.setState(NoteType.Normal);
         });
 
         placeTap.onClick.AddListener(delegate {
-            ChartSingleton.instance.setState("Tap");
+            ChartSingleton.instance.setState(NoteType.Tap);
         });
 
         placeHold.onClick.AddListener(delegate {
-            ChartSingleton.instance.setState("Hold");
+            ChartSingleton.instance.setState(NoteType.Hold);
         });
 
         save.onClick.AddListener(delegate {

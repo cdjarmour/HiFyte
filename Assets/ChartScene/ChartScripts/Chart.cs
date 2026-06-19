@@ -3,10 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.IO.Enumeration;
+using System.Linq;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using Unity.VisualScripting;
 using UnityEngine;
-using Newtonsoft.Json;
-using System.Linq;
 
 
 [Serializable]
@@ -44,10 +45,10 @@ public class Note : IComparable<Note> {
     public int lane;
     public int subdivision;
     public int holdBeats;
-    public String type;
+    public NoteType type;
 
     public Note() { }
-    public Note(float time, int lane, int subdivision, int holdBeats, String nt) {
+    public Note(float time, int lane, int subdivision, int holdBeats, NoteType nt) {
         this.type = nt;
         this.time = time;
         this.lane = lane;
@@ -55,11 +56,11 @@ public class Note : IComparable<Note> {
         this.holdBeats = holdBeats;
     }
 
-    public Note(float time, int lane, int subdivision, String nt)
+    public Note(float time, int lane, int subdivision, NoteType nt)
         : this(time, lane, subdivision, 0, nt)  {}
 
     public Note(float time, int lane, int subdivision)
-    : this(time, lane, subdivision, 0, "Normal") { }
+    : this(time, lane, subdivision, 0, NoteType.Normal) { }
 
     public override bool Equals(object obj) {
         if (obj is Note other)
@@ -138,6 +139,7 @@ public static class ChartJSON {
             sortedNotes[i] = new List<Note>();
             foreach (Dictionary<int, Note> beats in notes[i].Values) {
                 foreach (Note note in beats.Values) {
+                    if (sortedNotes[i].Contains(note)) continue;
                     sortedNotes[i].Add(note);
                 }
             }
@@ -148,3 +150,12 @@ public static class ChartJSON {
     }
 }
 
+
+[JsonConverter(typeof(StringEnumConverter))]
+public enum NoteType {
+    Normal,
+    Hold,
+    Tap,
+    Release,
+    Extend
+}

@@ -23,8 +23,8 @@ public class NoteDisplay : MonoBehaviour
         float gridSubdivisions = ChartSingleton.instance.getSubdivisions();
         float gridBPM = ChartSingleton.instance.getBPM();
 
-        if (note.type == "Hold") image.sprite = Resources.Load<Sprite>("Notes/Normal");
-        else image.sprite = Resources.Load<Sprite>("Notes/" + note.type);
+        if (note.type == NoteType.Hold) image.sprite = Resources.Load<Sprite>("Notes/Normal");
+        else image.sprite = Resources.Load<Sprite>("Notes/" + note.type.ToString());
 
         transform.SetParent(ChartSingleton.instance.getCanvas().transform, false);
         transform.SetSiblingIndex(1);
@@ -47,7 +47,7 @@ public class NoteDisplay : MonoBehaviour
         rt.transform.position = new Vector2(x, y);
         yPos = y;
 
-        if (note.type == "Hold") {
+        if (note.type == NoteType.Hold) {
             holdDisplay = new GameObject("Hold Note");
             holdDisplay.AddComponent<Image>().sprite = Resources.Load<Sprite>("Notes/Hold");
             RectTransform hrt = holdDisplay.GetComponent<RectTransform>();

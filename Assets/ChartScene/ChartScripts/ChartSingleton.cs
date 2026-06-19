@@ -13,14 +13,14 @@ public class ChartSingleton : MonoBehaviour
     #region Static Members
     private const int INITIAL_SUBDIVISIONS = 8;
     private const int INITIAL_BASE_BEAT = 1;
-    private const string INITIAL_BUILD_STATE = "Normal";
+    private const NoteType INITIAL_BUILD_STATE = NoteType.Normal;
     [SerializeField] private Canvas _CANVAS;
     #endregion Static Members
 
     public static ChartSingleton instance { get; private set; }
 
     private int subdivisions;
-    private String buildState;
+    private NoteType buildState;
     private int bpm;
     private float baseBeat;
     private Canvas canvas; 
@@ -56,7 +56,7 @@ public class ChartSingleton : MonoBehaviour
         return baseBeat;
     }
 
-    public String getState() {
+    public NoteType getState() {
         return buildState;
     }
 
@@ -68,7 +68,7 @@ public class ChartSingleton : MonoBehaviour
         bpm = newBpm;
     }
 
-    public void setState(string newState) {
+    public void setState(NoteType newState) {
         buildState = newState;
     }
 
