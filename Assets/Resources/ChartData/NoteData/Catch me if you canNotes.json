@@ -1,767 +1,1521 @@
 [
-    {
-        "17": {
-            "1": {
-                "time": 5.5491329,
-                "lane": 0,
-                "subdivision": 8,
-                "holdBeats": 0,
-                "type": "Normal"
-            }
-        },
-        "18": {
-            "1": {
-                "time": 5.8959537,
-                "lane": 0,
-                "subdivision": 8,
-                "holdBeats": 0,
-                "type": "Normal"
-            }
-        },
-        "19": {
-            "1": {
-                "time": 6.2427744,
-                "lane": 0,
-                "subdivision": 8,
-                "holdBeats": 0,
-                "type": "Normal"
-            }
-        },
-        "20": {
-            "1": {
-                "time": 6.5895954,
-                "lane": 0,
-                "subdivision": 8,
-                "holdBeats": 0,
-                "type": "Normal"
-            }
-        },
-        "21": {
-            "1": {
-                "time": 6.9364164,
-                "lane": 0,
-                "subdivision": 8,
-                "holdBeats": 0,
-                "type": "Normal"
-            }
-        },
-        "22": {
-            "1": {
-                "time": 7.283237,
-                "lane": 0,
-                "subdivision": 8,
-                "holdBeats": 0,
-                "type": "Normal"
-            }
-        },
-        "23": {
-            "1": {
-                "time": 7.6300574,
-                "lane": 0,
-                "subdivision": 8,
-                "holdBeats": 0,
-                "type": "Normal"
-            }
-        },
-        "24": {
-            "1": {
-                "time": 7.9768784,
-                "lane": 0,
-                "subdivision": 8,
-                "holdBeats": 0,
-                "type": "Normal"
-            }
-        },
-        "25": {
-            "1": {
-                "time": 8.3236994,
-                "lane": 0,
-                "subdivision": 8,
-                "holdBeats": 0,
-                "type": "Normal"
-            }
-        },
-        "31": {
-            "1": {
-                "time": 10.404624,
-                "lane": 0,
-                "subdivision": 8,
-                "holdBeats": 0,
-                "type": "Normal"
-            }
-        },
-        "32": {
-            "1": {
-                "time": 10.7514449,
-                "lane": 0,
-                "subdivision": 8,
-                "holdBeats": 0,
-                "type": "Normal"
-            }
-        },
-        "33": {
-            "1": {
-                "time": 11.0982657,
-                "lane": 0,
-                "subdivision": 8,
-                "holdBeats": 0,
-                "type": "Normal"
-            }
-        },
-        "34": {
-            "1": {
-                "time": 11.4450865,
-                "lane": 0,
-                "subdivision": 8,
-                "holdBeats": 0,
-                "type": "Normal"
-            }
-        },
-        "36": {
-            "1": {
-                "time": 12.1387284,
-                "lane": 0,
-                "subdivision": 8,
-                "holdBeats": 0,
-                "type": "Normal"
-            }
-        },
-        "37": {
-            "5": {
-                "time": 12.6589595,
-                "lane": 0,
-                "subdivision": 8,
-                "holdBeats": 0,
-                "type": "Normal"
-            }
-        },
-        "40": {
-            "5": {
-                "time": 13.6994219,
-                "lane": 0,
-                "subdivision": 8,
-                "holdBeats": 0,
-                "type": "Normal"
-            }
-        },
-        "44": {
-            "5": {
-                "time": 15.0867053,
-                "lane": 0,
-                "subdivision": 8,
-                "holdBeats": 0,
-                "type": "Normal"
-            }
-        },
-        "46": {
-            "5": {
-                "time": 15.780346,
-                "lane": 0,
-                "subdivision": 8,
-                "holdBeats": 0,
-                "type": "Normal"
-            }
-        },
-        "49": {
-            "5": {
-                "time": 16.8208084,
-                "lane": 0,
-                "subdivision": 8,
-                "holdBeats": 0,
-                "type": "Normal"
-            }
-        },
-        "51": {
-            "1": {
-                "time": 17.3410397,
-                "lane": 0,
-                "subdivision": 8,
-                "holdBeats": 0,
-                "type": "Normal"
-            }
-        },
-        "52": {
-            "1": {
-                "time": 17.6878606,
-                "lane": 0,
-                "subdivision": 8,
-                "holdBeats": 0,
-                "type": "Normal"
-            }
-        },
-        "54": {
-            "1": {
-                "time": 18.3815022,
-                "lane": 0,
-                "subdivision": 8,
-                "holdBeats": 0,
-                "type": "Normal"
-            }
-        },
-        "55": {
-            "7": {
-                "time": 18.9884396,
-                "lane": 0,
-                "subdivision": 8,
-                "holdBeats": 0,
-                "type": "Normal"
-            }
-        },
-        "56": {
-            "3": {
-                "time": 19.16185,
-                "lane": 0,
-                "subdivision": 8,
-                "holdBeats": 0,
-                "type": "Normal"
-            }
-        },
-        "57": {
-            "7": {
-                "time": 19.6820813,
-                "lane": 0,
-                "subdivision": 8,
-                "holdBeats": 0,
-                "type": "Normal"
-            }
-        },
-        "58": {
-            "3": {
-                "time": 19.8554917,
-                "lane": 0,
-                "subdivision": 8,
-                "holdBeats": 0,
-                "type": "Normal"
-            }
-        }
+  {
+    "17": {
+      "1": {
+        "time": 5.549133,
+        "lane": 0,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
     },
-    {
-        "26": {
-            "1": {
-                "time": 8.6705199,
-                "lane": 1,
-                "subdivision": 8,
-                "holdBeats": 0,
-                "type": "Normal"
-            }
-        },
-        "30": {
-            "1": {
-                "time": 10.0578032,
-                "lane": 1,
-                "subdivision": 8,
-                "holdBeats": 0,
-                "type": "Normal"
-            }
-        },
-        "32": {
-            "1": {
-                "time": 10.7514449,
-                "lane": 1,
-                "subdivision": 8,
-                "holdBeats": 0,
-                "type": "Normal"
-            }
-        },
-        "33": {
-            "5": {
-                "time": 11.2716761,
-                "lane": 1,
-                "subdivision": 8,
-                "holdBeats": 0,
-                "type": "Normal"
-            }
-        },
-        "35": {
-            "5": {
-                "time": 11.9653178,
-                "lane": 1,
-                "subdivision": 8,
-                "holdBeats": 0,
-                "type": "Normal"
-            }
-        },
-        "37": {
-            "5": {
-                "time": 12.6589595,
-                "lane": 1,
-                "subdivision": 8,
-                "holdBeats": 0,
-                "type": "Normal"
-            }
-        },
-        "41": {
-            "1": {
-                "time": 13.8728324,
-                "lane": 1,
-                "subdivision": 8,
-                "holdBeats": 0,
-                "type": "Normal"
-            }
-        },
-        "42": {
-            "1": {
-                "time": 14.2196532,
-                "lane": 1,
-                "subdivision": 8,
-                "holdBeats": 0,
-                "type": "Normal"
-            },
-            "5": {
-                "time": 14.3930636,
-                "lane": 1,
-                "subdivision": 8,
-                "holdBeats": 0,
-                "type": "Normal"
-            }
-        },
-        "45": {
-            "5": {
-                "time": 15.4335251,
-                "lane": 1,
-                "subdivision": 8,
-                "holdBeats": 0,
-                "type": "Normal"
-            }
-        },
-        "49": {
-            "1": {
-                "time": 16.6473984,
-                "lane": 1,
-                "subdivision": 8,
-                "holdBeats": 0,
-                "type": "Normal"
-            }
-        },
-        "50": {
-            "1": {
-                "time": 16.9942184,
-                "lane": 1,
-                "subdivision": 8,
-                "holdBeats": 0,
-                "type": "Normal"
-            }
-        },
-        "52": {
-            "1": {
-                "time": 17.6878606,
-                "lane": 1,
-                "subdivision": 8,
-                "holdBeats": 0,
-                "type": "Normal"
-            }
-        },
-        "53": {
-            "1": {
-                "time": 18.0346814,
-                "lane": 1,
-                "subdivision": 8,
-                "holdBeats": 0,
-                "type": "Normal"
-            }
-        },
-        "54": {
-            "1": {
-                "time": 18.3815022,
-                "lane": 1,
-                "subdivision": 8,
-                "holdBeats": 0,
-                "type": "Normal"
-            }
-        },
-        "56": {
-            "1": {
-                "time": 19.0751439,
-                "lane": 1,
-                "subdivision": 8,
-                "holdBeats": 0,
-                "type": "Normal"
-            }
-        },
-        "58": {
-            "1": {
-                "time": 19.7687855,
-                "lane": 1,
-                "subdivision": 8,
-                "holdBeats": 0,
-                "type": "Normal"
-            }
-        }
+    "18": {
+      "1": {
+        "time": 5.89595366,
+        "lane": 0,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
     },
-    {
-        "27": {
-            "1": {
-                "time": 9.0173404,
-                "lane": 2,
-                "subdivision": 8,
-                "holdBeats": 0,
-                "type": "Normal"
-            }
-        },
-        "29": {
-            "1": {
-                "time": 9.7109824,
-                "lane": 2,
-                "subdivision": 8,
-                "holdBeats": 0,
-                "type": "Normal"
-            }
-        },
-        "32": {
-            "1": {
-                "time": 10.7514449,
-                "lane": 2,
-                "subdivision": 8,
-                "holdBeats": 0,
-                "type": "Normal"
-            }
-        },
-        "35": {
-            "5": {
-                "time": 11.9653178,
-                "lane": 2,
-                "subdivision": 8,
-                "holdBeats": 0,
-                "type": "Normal"
-            }
-        },
-        "36": {
-            "5": {
-                "time": 12.3121384,
-                "lane": 2,
-                "subdivision": 8,
-                "holdBeats": 0,
-                "type": "Normal"
-            }
-        },
-        "38": {
-            "5": {
-                "time": 13.0057803,
-                "lane": 2,
-                "subdivision": 8,
-                "holdBeats": 0,
-                "type": "Normal"
-            }
-        },
-        "40": {
-            "1": {
-                "time": 13.5260115,
-                "lane": 2,
-                "subdivision": 8,
-                "holdBeats": 0,
-                "type": "Normal"
-            }
-        },
-        "43": {
-            "5": {
-                "time": 14.7398844,
-                "lane": 2,
-                "subdivision": 8,
-                "holdBeats": 0,
-                "type": "Normal"
-            }
-        },
-        "44": {
-            "5": {
-                "time": 15.0867053,
-                "lane": 2,
-                "subdivision": 8,
-                "holdBeats": 0,
-                "type": "Normal"
-            }
-        },
-        "47": {
-            "5": {
-                "time": 16.1271668,
-                "lane": 2,
-                "subdivision": 8,
-                "holdBeats": 0,
-                "type": "Normal"
-            }
-        },
-        "48": {
-            "5": {
-                "time": 16.4739884,
-                "lane": 2,
-                "subdivision": 8,
-                "holdBeats": 0,
-                "type": "Normal"
-            }
-        },
-        "51": {
-            "5": {
-                "time": 17.5144501,
-                "lane": 2,
-                "subdivision": 8,
-                "holdBeats": 0,
-                "type": "Normal"
-            }
-        },
-        "52": {
-            "1": {
-                "time": 17.6878606,
-                "lane": 2,
-                "subdivision": 8,
-                "holdBeats": 0,
-                "type": "Normal"
-            }
-        },
-        "53": {
-            "1": {
-                "time": 18.0346814,
-                "lane": 2,
-                "subdivision": 8,
-                "holdBeats": 0,
-                "type": "Normal"
-            }
-        },
-        "54": {
-            "1": {
-                "time": 18.3815022,
-                "lane": 2,
-                "subdivision": 8,
-                "holdBeats": 0,
-                "type": "Normal"
-            }
-        },
-        "55": {
-            "3": {
-                "time": 18.8150284,
-                "lane": 2,
-                "subdivision": 8,
-                "holdBeats": 0,
-                "type": "Normal"
-            }
-        },
-        "59": {
-            "3": {
-                "time": 20.2023125,
-                "lane": 2,
-                "subdivision": 8,
-                "holdBeats": 0,
-                "type": "Normal"
-            }
-        }
+    "19": {
+      "1": {
+        "time": 6.24277449,
+        "lane": 0,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
     },
-    {
-        "17": {
-            "1": {
-                "time": 5.5491329,
-                "lane": 3,
-                "subdivision": 8,
-                "holdBeats": 0,
-                "type": "Normal"
-            }
-        },
-        "18": {
-            "1": {
-                "time": 5.8959537,
-                "lane": 3,
-                "subdivision": 8,
-                "holdBeats": 0,
-                "type": "Normal"
-            }
-        },
-        "19": {
-            "1": {
-                "time": 6.2427744,
-                "lane": 3,
-                "subdivision": 8,
-                "holdBeats": 0,
-                "type": "Normal"
-            }
-        },
-        "20": {
-            "1": {
-                "time": 6.5895954,
-                "lane": 3,
-                "subdivision": 8,
-                "holdBeats": 0,
-                "type": "Normal"
-            }
-        },
-        "21": {
-            "1": {
-                "time": 6.9364164,
-                "lane": 3,
-                "subdivision": 8,
-                "holdBeats": 0,
-                "type": "Normal"
-            }
-        },
-        "22": {
-            "1": {
-                "time": 7.283237,
-                "lane": 3,
-                "subdivision": 8,
-                "holdBeats": 0,
-                "type": "Normal"
-            }
-        },
-        "23": {
-            "1": {
-                "time": 7.6300574,
-                "lane": 3,
-                "subdivision": 8,
-                "holdBeats": 0,
-                "type": "Normal"
-            }
-        },
-        "24": {
-            "1": {
-                "time": 7.9768784,
-                "lane": 3,
-                "subdivision": 8,
-                "holdBeats": 0,
-                "type": "Normal"
-            }
-        },
-        "28": {
-            "1": {
-                "time": 9.3641616,
-                "lane": 3,
-                "subdivision": 8,
-                "holdBeats": 0,
-                "type": "Normal"
-            }
-        },
-        "32": {
-            "1": {
-                "time": 10.7514449,
-                "lane": 3,
-                "subdivision": 8,
-                "holdBeats": 0,
-                "type": "Normal"
-            }
-        },
-        "34": {
-            "5": {
-                "time": 11.618497,
-                "lane": 3,
-                "subdivision": 8,
-                "holdBeats": 0,
-                "type": "Normal"
-            }
-        },
-        "36": {
-            "1": {
-                "time": 12.1387284,
-                "lane": 3,
-                "subdivision": 8,
-                "holdBeats": 0,
-                "type": "Normal"
-            },
-            "5": {
-                "time": 12.3121384,
-                "lane": 3,
-                "subdivision": 8,
-                "holdBeats": 0,
-                "type": "Normal"
-            }
-        },
-        "38": {
-            "5": {
-                "time": 13.0057803,
-                "lane": 3,
-                "subdivision": 8,
-                "holdBeats": 0,
-                "type": "Normal"
-            }
-        },
-        "39": {
-            "5": {
-                "time": 13.3526011,
-                "lane": 3,
-                "subdivision": 8,
-                "holdBeats": 0,
-                "type": "Normal"
-            }
-        },
-        "45": {
-            "5": {
-                "time": 15.4335251,
-                "lane": 3,
-                "subdivision": 8,
-                "holdBeats": 0,
-                "type": "Normal"
-            }
-        },
-        "46": {
-            "5": {
-                "time": 15.780346,
-                "lane": 3,
-                "subdivision": 8,
-                "holdBeats": 0,
-                "type": "Normal"
-            }
-        },
-        "48": {
-            "1": {
-                "time": 16.3005772,
-                "lane": 3,
-                "subdivision": 8,
-                "holdBeats": 0,
-                "type": "Normal"
-            }
-        },
-        "50": {
-            "5": {
-                "time": 17.1676284,
-                "lane": 3,
-                "subdivision": 8,
-                "holdBeats": 0,
-                "type": "Normal"
-            }
-        },
-        "53": {
-            "1": {
-                "time": 18.0346814,
-                "lane": 3,
-                "subdivision": 8,
-                "holdBeats": 0,
-                "type": "Normal"
-            }
-        },
-        "55": {
-            "1": {
-                "time": 18.728323,
-                "lane": 3,
-                "subdivision": 8,
-                "holdBeats": 0,
-                "type": "Normal"
-            },
-            "5": {
-                "time": 18.9017335,
-                "lane": 3,
-                "subdivision": 8,
-                "holdBeats": 0,
-                "type": "Normal"
-            }
-        },
-        "57": {
-            "1": {
-                "time": 19.4219647,
-                "lane": 3,
-                "subdivision": 8,
-                "holdBeats": 0,
-                "type": "Normal"
-            }
-        },
-        "59": {
-            "1": {
-                "time": 20.1156064,
-                "lane": 3,
-                "subdivision": 8,
-                "holdBeats": 0,
-                "type": "Normal"
-            },
-            "5": {
-                "time": 20.2890168,
-                "lane": 3,
-                "subdivision": 8,
-                "holdBeats": 0,
-                "type": "Normal"
-            }
-        }
+    "20": {
+      "1": {
+        "time": 6.58959532,
+        "lane": 0,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "21": {
+      "1": {
+        "time": 6.93641663,
+        "lane": 0,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "22": {
+      "1": {
+        "time": 7.283237,
+        "lane": 0,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "23": {
+      "1": {
+        "time": 7.63005733,
+        "lane": 0,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "24": {
+      "1": {
+        "time": 7.976878,
+        "lane": 0,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "31": {
+      "1": {
+        "time": 10.404624,
+        "lane": 0,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "32": {
+      "1": {
+        "time": 10.7514448,
+        "lane": 0,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "33": {
+      "1": {
+        "time": 11.0982656,
+        "lane": 0,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "34": {
+      "1": {
+        "time": 11.4450865,
+        "lane": 0,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "36": {
+      "1": {
+        "time": 12.1387281,
+        "lane": 0,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "37": {
+      "5": {
+        "time": 12.6589594,
+        "lane": 0,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "40": {
+      "5": {
+        "time": 13.6994219,
+        "lane": 0,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "44": {
+      "5": {
+        "time": 15.0867052,
+        "lane": 0,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "46": {
+      "5": {
+        "time": 15.7803459,
+        "lane": 0,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "49": {
+      "5": {
+        "time": 16.8208084,
+        "lane": 0,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "51": {
+      "1": {
+        "time": 17.34104,
+        "lane": 0,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "52": {
+      "1": {
+        "time": 17.68786,
+        "lane": 0,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "54": {
+      "1": {
+        "time": 18.3815022,
+        "lane": 0,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "55": {
+      "7": {
+        "time": 18.98844,
+        "lane": 0,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "56": {
+      "3": {
+        "time": 19.16185,
+        "lane": 0,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "57": {
+      "7": {
+        "time": 19.6820812,
+        "lane": 0,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "58": {
+      "3": {
+        "time": 19.8554916,
+        "lane": 0,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "25": {
+      "1": {
+        "time": 8.323699,
+        "lane": 0,
+        "subdivision": 8,
+        "holdBeats": 23,
+        "type": "Hold"
+      },
+      "2": {
+        "time": 8.323699,
+        "lane": 0,
+        "subdivision": 8,
+        "holdBeats": 23,
+        "type": "Hold"
+      },
+      "3": {
+        "time": 8.323699,
+        "lane": 0,
+        "subdivision": 8,
+        "holdBeats": 23,
+        "type": "Hold"
+      },
+      "4": {
+        "time": 8.323699,
+        "lane": 0,
+        "subdivision": 8,
+        "holdBeats": 23,
+        "type": "Hold"
+      },
+      "5": {
+        "time": 8.323699,
+        "lane": 0,
+        "subdivision": 8,
+        "holdBeats": 23,
+        "type": "Hold"
+      },
+      "6": {
+        "time": 8.323699,
+        "lane": 0,
+        "subdivision": 8,
+        "holdBeats": 23,
+        "type": "Hold"
+      },
+      "7": {
+        "time": 8.323699,
+        "lane": 0,
+        "subdivision": 8,
+        "holdBeats": 23,
+        "type": "Hold"
+      },
+      "8": {
+        "time": 8.323699,
+        "lane": 0,
+        "subdivision": 8,
+        "holdBeats": 23,
+        "type": "Hold"
+      }
+    },
+    "26": {
+      "1": {
+        "time": 8.323699,
+        "lane": 0,
+        "subdivision": 8,
+        "holdBeats": 23,
+        "type": "Hold"
+      },
+      "2": {
+        "time": 8.323699,
+        "lane": 0,
+        "subdivision": 8,
+        "holdBeats": 23,
+        "type": "Hold"
+      },
+      "3": {
+        "time": 8.323699,
+        "lane": 0,
+        "subdivision": 8,
+        "holdBeats": 23,
+        "type": "Hold"
+      },
+      "4": {
+        "time": 8.323699,
+        "lane": 0,
+        "subdivision": 8,
+        "holdBeats": 23,
+        "type": "Hold"
+      },
+      "5": {
+        "time": 8.323699,
+        "lane": 0,
+        "subdivision": 8,
+        "holdBeats": 23,
+        "type": "Hold"
+      },
+      "6": {
+        "time": 8.323699,
+        "lane": 0,
+        "subdivision": 8,
+        "holdBeats": 23,
+        "type": "Hold"
+      },
+      "7": {
+        "time": 8.323699,
+        "lane": 0,
+        "subdivision": 8,
+        "holdBeats": 23,
+        "type": "Hold"
+      },
+      "8": {
+        "time": 8.323699,
+        "lane": 0,
+        "subdivision": 8,
+        "holdBeats": 23,
+        "type": "Hold"
+      }
+    },
+    "27": {
+      "1": {
+        "time": 8.323699,
+        "lane": 0,
+        "subdivision": 8,
+        "holdBeats": 23,
+        "type": "Hold"
+      },
+      "2": {
+        "time": 8.323699,
+        "lane": 0,
+        "subdivision": 8,
+        "holdBeats": 23,
+        "type": "Hold"
+      },
+      "3": {
+        "time": 8.323699,
+        "lane": 0,
+        "subdivision": 8,
+        "holdBeats": 23,
+        "type": "Hold"
+      },
+      "4": {
+        "time": 8.323699,
+        "lane": 0,
+        "subdivision": 8,
+        "holdBeats": 23,
+        "type": "Hold"
+      },
+      "5": {
+        "time": 8.323699,
+        "lane": 0,
+        "subdivision": 8,
+        "holdBeats": 23,
+        "type": "Hold"
+      },
+      "6": {
+        "time": 8.323699,
+        "lane": 0,
+        "subdivision": 8,
+        "holdBeats": 23,
+        "type": "Hold"
+      },
+      "7": {
+        "time": 8.323699,
+        "lane": 0,
+        "subdivision": 8,
+        "holdBeats": 23,
+        "type": "Hold"
+      },
+      "8": {
+        "time": 8.323699,
+        "lane": 0,
+        "subdivision": 8,
+        "holdBeats": 23,
+        "type": "Hold"
+      }
+    },
+    "6": {
+      "1": {
+        "time": 1.38728321,
+        "lane": 0,
+        "subdivision": 8,
+        "holdBeats": 31,
+        "type": "Hold"
+      },
+      "2": {
+        "time": 1.38728321,
+        "lane": 0,
+        "subdivision": 8,
+        "holdBeats": 31,
+        "type": "Hold"
+      },
+      "3": {
+        "time": 1.38728321,
+        "lane": 0,
+        "subdivision": 8,
+        "holdBeats": 31,
+        "type": "Hold"
+      },
+      "4": {
+        "time": 1.38728321,
+        "lane": 0,
+        "subdivision": 8,
+        "holdBeats": 31,
+        "type": "Hold"
+      },
+      "5": {
+        "time": 1.38728321,
+        "lane": 0,
+        "subdivision": 8,
+        "holdBeats": 31,
+        "type": "Hold"
+      },
+      "6": {
+        "time": 1.38728321,
+        "lane": 0,
+        "subdivision": 8,
+        "holdBeats": 31,
+        "type": "Hold"
+      },
+      "7": {
+        "time": 1.38728321,
+        "lane": 0,
+        "subdivision": 8,
+        "holdBeats": 31,
+        "type": "Hold"
+      },
+      "8": {
+        "time": 1.38728321,
+        "lane": 0,
+        "subdivision": 8,
+        "holdBeats": 31,
+        "type": "Hold"
+      }
+    },
+    "5": {
+      "1": {
+        "time": 1.38728321,
+        "lane": 0,
+        "subdivision": 8,
+        "holdBeats": 31,
+        "type": "Hold"
+      },
+      "2": {
+        "time": 1.38728321,
+        "lane": 0,
+        "subdivision": 8,
+        "holdBeats": 31,
+        "type": "Hold"
+      },
+      "3": {
+        "time": 1.38728321,
+        "lane": 0,
+        "subdivision": 8,
+        "holdBeats": 31,
+        "type": "Hold"
+      },
+      "4": {
+        "time": 1.38728321,
+        "lane": 0,
+        "subdivision": 8,
+        "holdBeats": 31,
+        "type": "Hold"
+      },
+      "5": {
+        "time": 1.38728321,
+        "lane": 0,
+        "subdivision": 8,
+        "holdBeats": 31,
+        "type": "Hold"
+      },
+      "6": {
+        "time": 1.38728321,
+        "lane": 0,
+        "subdivision": 8,
+        "holdBeats": 31,
+        "type": "Hold"
+      },
+      "7": {
+        "time": 1.38728321,
+        "lane": 0,
+        "subdivision": 8,
+        "holdBeats": 31,
+        "type": "Hold"
+      },
+      "8": {
+        "time": 1.38728321,
+        "lane": 0,
+        "subdivision": 8,
+        "holdBeats": 31,
+        "type": "Hold"
+      }
+    },
+    "7": {
+      "1": {
+        "time": 1.38728321,
+        "lane": 0,
+        "subdivision": 8,
+        "holdBeats": 31,
+        "type": "Hold"
+      },
+      "2": {
+        "time": 1.38728321,
+        "lane": 0,
+        "subdivision": 8,
+        "holdBeats": 31,
+        "type": "Hold"
+      },
+      "3": {
+        "time": 1.38728321,
+        "lane": 0,
+        "subdivision": 8,
+        "holdBeats": 31,
+        "type": "Hold"
+      },
+      "4": {
+        "time": 1.38728321,
+        "lane": 0,
+        "subdivision": 8,
+        "holdBeats": 31,
+        "type": "Hold"
+      },
+      "5": {
+        "time": 1.38728321,
+        "lane": 0,
+        "subdivision": 8,
+        "holdBeats": 31,
+        "type": "Hold"
+      },
+      "6": {
+        "time": 1.38728321,
+        "lane": 0,
+        "subdivision": 8,
+        "holdBeats": 31,
+        "type": "Hold"
+      },
+      "7": {
+        "time": 1.38728321,
+        "lane": 0,
+        "subdivision": 8,
+        "holdBeats": 31,
+        "type": "Hold"
+      },
+      "8": {
+        "time": 1.38728321,
+        "lane": 0,
+        "subdivision": 8,
+        "holdBeats": 31,
+        "type": "Hold"
+      }
+    },
+    "8": {
+      "1": {
+        "time": 1.38728321,
+        "lane": 0,
+        "subdivision": 8,
+        "holdBeats": 31,
+        "type": "Hold"
+      },
+      "2": {
+        "time": 1.38728321,
+        "lane": 0,
+        "subdivision": 8,
+        "holdBeats": 31,
+        "type": "Hold"
+      },
+      "3": {
+        "time": 1.38728321,
+        "lane": 0,
+        "subdivision": 8,
+        "holdBeats": 31,
+        "type": "Hold"
+      },
+      "4": {
+        "time": 1.38728321,
+        "lane": 0,
+        "subdivision": 8,
+        "holdBeats": 31,
+        "type": "Hold"
+      },
+      "5": {
+        "time": 1.38728321,
+        "lane": 0,
+        "subdivision": 8,
+        "holdBeats": 31,
+        "type": "Hold"
+      },
+      "6": {
+        "time": 1.38728321,
+        "lane": 0,
+        "subdivision": 8,
+        "holdBeats": 31,
+        "type": "Hold"
+      },
+      "7": {
+        "time": 1.38728321,
+        "lane": 0,
+        "subdivision": 8,
+        "holdBeats": 31,
+        "type": "Hold"
+      },
+      "8": {
+        "time": 1.38728321,
+        "lane": 0,
+        "subdivision": 8,
+        "holdBeats": 31,
+        "type": "Hold"
+      }
     }
+  },
+  {
+    "30": {
+      "1": {
+        "time": 10.0578032,
+        "lane": 1,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "32": {
+      "1": {
+        "time": 10.7514448,
+        "lane": 1,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "33": {
+      "5": {
+        "time": 11.2716761,
+        "lane": 1,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "35": {
+      "5": {
+        "time": 11.9653177,
+        "lane": 1,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "37": {
+      "5": {
+        "time": 12.6589594,
+        "lane": 1,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "41": {
+      "1": {
+        "time": 13.8728323,
+        "lane": 1,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "42": {
+      "1": {
+        "time": 14.2196531,
+        "lane": 1,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      },
+      "5": {
+        "time": 14.3930635,
+        "lane": 1,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "45": {
+      "5": {
+        "time": 15.4335251,
+        "lane": 1,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "49": {
+      "1": {
+        "time": 16.647398,
+        "lane": 1,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "50": {
+      "1": {
+        "time": 16.9942188,
+        "lane": 1,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "52": {
+      "1": {
+        "time": 17.68786,
+        "lane": 1,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "53": {
+      "1": {
+        "time": 18.0346813,
+        "lane": 1,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "54": {
+      "1": {
+        "time": 18.3815022,
+        "lane": 1,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "56": {
+      "1": {
+        "time": 19.0751438,
+        "lane": 1,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "58": {
+      "1": {
+        "time": 19.7687855,
+        "lane": 1,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "7": {
+      "1": {
+        "time": 2.08092475,
+        "lane": 1,
+        "subdivision": 8,
+        "holdBeats": 15,
+        "type": "Hold"
+      },
+      "2": {
+        "time": 2.08092475,
+        "lane": 1,
+        "subdivision": 8,
+        "holdBeats": 15,
+        "type": "Hold"
+      },
+      "3": {
+        "time": 2.08092475,
+        "lane": 1,
+        "subdivision": 8,
+        "holdBeats": 15,
+        "type": "Hold"
+      },
+      "4": {
+        "time": 2.08092475,
+        "lane": 1,
+        "subdivision": 8,
+        "holdBeats": 15,
+        "type": "Hold"
+      },
+      "5": {
+        "time": 2.08092475,
+        "lane": 1,
+        "subdivision": 8,
+        "holdBeats": 15,
+        "type": "Hold"
+      },
+      "6": {
+        "time": 2.08092475,
+        "lane": 1,
+        "subdivision": 8,
+        "holdBeats": 15,
+        "type": "Hold"
+      },
+      "7": {
+        "time": 2.08092475,
+        "lane": 1,
+        "subdivision": 8,
+        "holdBeats": 15,
+        "type": "Hold"
+      },
+      "8": {
+        "time": 2.08092475,
+        "lane": 1,
+        "subdivision": 8,
+        "holdBeats": 15,
+        "type": "Hold"
+      }
+    },
+    "8": {
+      "1": {
+        "time": 2.08092475,
+        "lane": 1,
+        "subdivision": 8,
+        "holdBeats": 15,
+        "type": "Hold"
+      },
+      "2": {
+        "time": 2.08092475,
+        "lane": 1,
+        "subdivision": 8,
+        "holdBeats": 15,
+        "type": "Hold"
+      },
+      "3": {
+        "time": 2.08092475,
+        "lane": 1,
+        "subdivision": 8,
+        "holdBeats": 15,
+        "type": "Hold"
+      },
+      "4": {
+        "time": 2.08092475,
+        "lane": 1,
+        "subdivision": 8,
+        "holdBeats": 15,
+        "type": "Hold"
+      },
+      "5": {
+        "time": 2.08092475,
+        "lane": 1,
+        "subdivision": 8,
+        "holdBeats": 15,
+        "type": "Hold"
+      },
+      "6": {
+        "time": 2.08092475,
+        "lane": 1,
+        "subdivision": 8,
+        "holdBeats": 15,
+        "type": "Hold"
+      },
+      "7": {
+        "time": 2.08092475,
+        "lane": 1,
+        "subdivision": 8,
+        "holdBeats": 15,
+        "type": "Hold"
+      },
+      "8": {
+        "time": 2.08092475,
+        "lane": 1,
+        "subdivision": 8,
+        "holdBeats": 15,
+        "type": "Hold"
+      }
+    }
+  },
+  {
+    "29": {
+      "1": {
+        "time": 9.710982,
+        "lane": 2,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "32": {
+      "1": {
+        "time": 10.7514448,
+        "lane": 2,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "35": {
+      "5": {
+        "time": 11.9653177,
+        "lane": 2,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "36": {
+      "5": {
+        "time": 12.3121386,
+        "lane": 2,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "38": {
+      "5": {
+        "time": 13.00578,
+        "lane": 2,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "40": {
+      "1": {
+        "time": 13.5260115,
+        "lane": 2,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "43": {
+      "5": {
+        "time": 14.7398844,
+        "lane": 2,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "44": {
+      "5": {
+        "time": 15.0867052,
+        "lane": 2,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "47": {
+      "5": {
+        "time": 16.1271667,
+        "lane": 2,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "48": {
+      "5": {
+        "time": 16.4739876,
+        "lane": 2,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "51": {
+      "5": {
+        "time": 17.51445,
+        "lane": 2,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "52": {
+      "1": {
+        "time": 17.68786,
+        "lane": 2,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "53": {
+      "1": {
+        "time": 18.0346813,
+        "lane": 2,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "54": {
+      "1": {
+        "time": 18.3815022,
+        "lane": 2,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "55": {
+      "3": {
+        "time": 18.81503,
+        "lane": 2,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "59": {
+      "3": {
+        "time": 20.2023125,
+        "lane": 2,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "8": {
+      "1": {
+        "time": 2.42774558,
+        "lane": 2,
+        "subdivision": 8,
+        "holdBeats": 7,
+        "type": "Hold"
+      },
+      "2": {
+        "time": 2.42774558,
+        "lane": 2,
+        "subdivision": 8,
+        "holdBeats": 7,
+        "type": "Hold"
+      },
+      "3": {
+        "time": 2.42774558,
+        "lane": 2,
+        "subdivision": 8,
+        "holdBeats": 7,
+        "type": "Hold"
+      },
+      "4": {
+        "time": 2.42774558,
+        "lane": 2,
+        "subdivision": 8,
+        "holdBeats": 7,
+        "type": "Hold"
+      },
+      "5": {
+        "time": 2.42774558,
+        "lane": 2,
+        "subdivision": 8,
+        "holdBeats": 7,
+        "type": "Hold"
+      },
+      "6": {
+        "time": 2.42774558,
+        "lane": 2,
+        "subdivision": 8,
+        "holdBeats": 7,
+        "type": "Hold"
+      },
+      "7": {
+        "time": 2.42774558,
+        "lane": 2,
+        "subdivision": 8,
+        "holdBeats": 7,
+        "type": "Hold"
+      },
+      "8": {
+        "time": 2.42774558,
+        "lane": 2,
+        "subdivision": 8,
+        "holdBeats": 7,
+        "type": "Hold"
+      }
+    },
+    "25": {
+      "1": {
+        "time": 8.323699,
+        "lane": 2,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "26": {
+      "1": {
+        "time": 8.67052,
+        "lane": 2,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    }
+  },
+  {
+    "17": {
+      "1": {
+        "time": 5.549133,
+        "lane": 3,
+        "subdivision": 9,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "18": {
+      "1": {
+        "time": 5.89595366,
+        "lane": 3,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "19": {
+      "1": {
+        "time": 6.24277449,
+        "lane": 3,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "20": {
+      "1": {
+        "time": 6.58959532,
+        "lane": 3,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "21": {
+      "1": {
+        "time": 6.93641663,
+        "lane": 3,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "22": {
+      "1": {
+        "time": 7.283237,
+        "lane": 3,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "23": {
+      "1": {
+        "time": 7.63005733,
+        "lane": 3,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "24": {
+      "1": {
+        "time": 7.976878,
+        "lane": 3,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "32": {
+      "1": {
+        "time": 10.7514448,
+        "lane": 3,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "34": {
+      "5": {
+        "time": 11.6184969,
+        "lane": 3,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "36": {
+      "1": {
+        "time": 12.1387281,
+        "lane": 3,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      },
+      "5": {
+        "time": 12.3121386,
+        "lane": 3,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "38": {
+      "5": {
+        "time": 13.00578,
+        "lane": 3,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "39": {
+      "5": {
+        "time": 13.3526011,
+        "lane": 3,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "45": {
+      "5": {
+        "time": 15.4335251,
+        "lane": 3,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "46": {
+      "5": {
+        "time": 15.7803459,
+        "lane": 3,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "48": {
+      "1": {
+        "time": 16.3005772,
+        "lane": 3,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "50": {
+      "5": {
+        "time": 17.16763,
+        "lane": 3,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "53": {
+      "1": {
+        "time": 18.0346813,
+        "lane": 3,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "55": {
+      "1": {
+        "time": 18.728323,
+        "lane": 3,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      },
+      "5": {
+        "time": 18.9017334,
+        "lane": 3,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "57": {
+      "1": {
+        "time": 19.4219646,
+        "lane": 3,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "59": {
+      "1": {
+        "time": 20.1156063,
+        "lane": 3,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      },
+      "5": {
+        "time": 20.2890167,
+        "lane": 3,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "28": {
+      "1": {
+        "time": 9.36416149,
+        "lane": 3,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "9": {
+      "1": {
+        "time": 2.77456641,
+        "lane": 3,
+        "subdivision": 8,
+        "holdBeats": 23,
+        "type": "Hold"
+      },
+      "2": {
+        "time": 2.77456641,
+        "lane": 3,
+        "subdivision": 8,
+        "holdBeats": 23,
+        "type": "Hold"
+      },
+      "3": {
+        "time": 2.77456641,
+        "lane": 3,
+        "subdivision": 8,
+        "holdBeats": 23,
+        "type": "Hold"
+      },
+      "4": {
+        "time": 2.77456641,
+        "lane": 3,
+        "subdivision": 8,
+        "holdBeats": 23,
+        "type": "Hold"
+      },
+      "5": {
+        "time": 2.77456641,
+        "lane": 3,
+        "subdivision": 8,
+        "holdBeats": 23,
+        "type": "Hold"
+      },
+      "6": {
+        "time": 2.77456641,
+        "lane": 3,
+        "subdivision": 8,
+        "holdBeats": 23,
+        "type": "Hold"
+      },
+      "7": {
+        "time": 2.77456641,
+        "lane": 3,
+        "subdivision": 8,
+        "holdBeats": 23,
+        "type": "Hold"
+      },
+      "8": {
+        "time": 2.77456641,
+        "lane": 3,
+        "subdivision": 8,
+        "holdBeats": 23,
+        "type": "Hold"
+      }
+    },
+    "10": {
+      "1": {
+        "time": 2.77456641,
+        "lane": 3,
+        "subdivision": 8,
+        "holdBeats": 23,
+        "type": "Hold"
+      },
+      "2": {
+        "time": 2.77456641,
+        "lane": 3,
+        "subdivision": 8,
+        "holdBeats": 23,
+        "type": "Hold"
+      },
+      "3": {
+        "time": 2.77456641,
+        "lane": 3,
+        "subdivision": 8,
+        "holdBeats": 23,
+        "type": "Hold"
+      },
+      "4": {
+        "time": 2.77456641,
+        "lane": 3,
+        "subdivision": 8,
+        "holdBeats": 23,
+        "type": "Hold"
+      },
+      "5": {
+        "time": 2.77456641,
+        "lane": 3,
+        "subdivision": 8,
+        "holdBeats": 23,
+        "type": "Hold"
+      },
+      "6": {
+        "time": 2.77456641,
+        "lane": 3,
+        "subdivision": 8,
+        "holdBeats": 23,
+        "type": "Hold"
+      },
+      "7": {
+        "time": 2.77456641,
+        "lane": 3,
+        "subdivision": 8,
+        "holdBeats": 23,
+        "type": "Hold"
+      },
+      "8": {
+        "time": 2.77456641,
+        "lane": 3,
+        "subdivision": 8,
+        "holdBeats": 23,
+        "type": "Hold"
+      }
+    },
+    "11": {
+      "1": {
+        "time": 2.77456641,
+        "lane": 3,
+        "subdivision": 8,
+        "holdBeats": 23,
+        "type": "Hold"
+      },
+      "2": {
+        "time": 2.77456641,
+        "lane": 3,
+        "subdivision": 8,
+        "holdBeats": 23,
+        "type": "Hold"
+      },
+      "3": {
+        "time": 2.77456641,
+        "lane": 3,
+        "subdivision": 8,
+        "holdBeats": 23,
+        "type": "Hold"
+      },
+      "4": {
+        "time": 2.77456641,
+        "lane": 3,
+        "subdivision": 8,
+        "holdBeats": 23,
+        "type": "Hold"
+      },
+      "5": {
+        "time": 2.77456641,
+        "lane": 3,
+        "subdivision": 8,
+        "holdBeats": 23,
+        "type": "Hold"
+      },
+      "6": {
+        "time": 2.77456641,
+        "lane": 3,
+        "subdivision": 8,
+        "holdBeats": 23,
+        "type": "Hold"
+      },
+      "7": {
+        "time": 2.77456641,
+        "lane": 3,
+        "subdivision": 8,
+        "holdBeats": 23,
+        "type": "Hold"
+      },
+      "8": {
+        "time": 2.77456641,
+        "lane": 3,
+        "subdivision": 8,
+        "holdBeats": 23,
+        "type": "Hold"
+      }
+    },
+    "27": {
+      "1": {
+        "time": 9.017341,
+        "lane": 3,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    }
+  }
 ]
