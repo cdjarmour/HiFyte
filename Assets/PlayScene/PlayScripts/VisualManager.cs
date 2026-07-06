@@ -1,92 +1,110 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class VisualManager : MonoBehaviour {
     [SerializeField] private AudioSource _song;
     [SerializeField] private GameObject notePrefab;
     [SerializeField] private GameObject noteParent;
-    [SerializeField] private TMP_Text textField;
     [SerializeField] private AudioClip hitSound;
 
-    private const float BPM = 173f;
-    public static int SPEED = 3;
-
-    private bool playing = false;
+    #region Note Storage
     private List<Note>[] chart;
     private List<GameObject>[] chartDisplay = new List<GameObject>[4];
-    private int[] laneIndex = new int[4];
+    private List<PlayNoteDisplay>[] displayComponents = new List<PlayNoteDisplay>[4];
+    private int[] printIndex = new int[4];
     private int[] inputIndex = new int[4];
-    public static int combo = 0;
+    #endregion Note Storage
 
-    private float previouslyHeld = 0;
+    private const int ACCURACY_WINDOW = 6;
 
+    private float hitWindow;
+    private float beatLength;
+    private float songTime;
+    private float endPos;
+    private float startPos;
+
+    private BattleState state;
+    private BattleState previousState;
 
     void Start() {
-        chart = ChartJSON.getSortedNotes("Catch me if you can");
-        for (int i = 0; i < chart.Length; i++) {
-            laneIndex[i] = 0;
-            inputIndex[i] = 0;
-            chartDisplay[i] = new List<GameObject>();
-            foreach (Note note in chart[i]) {
-                GameObject noteObject = Instantiate(notePrefab);
-                switch (note.type) {
-                    case NoteType.Normal : noteObject.AddComponent<PlayNoteDisplay>();
-                    break;
+        chart = ChartJSON.getSortedNotes(BattleData.instance.getName());
+        createNoteObjects();
+        beatLength = Battle.BeatManager.instance.getBeatLength();
+        hitWindow = beatLength / ACCURACY_WINDOW;
+        BattleManager.OnBattleStateChange += OnStateUpdate;
+        Battle.BeatManager.OnCountDownEnd += OnAttackStart;
+        Battle.BeatManager.OnSongLoop += ResetIndecies;
+    }
 
-                    case NoteType.Hold: noteObject.AddComponent<PlayHoldNoteDisplay>();
-                    break;
-                }
-                noteObject.SetActive(false);
-                noteObject.transform.SetParent(noteParent.transform, true);
-                noteObject.GetComponent<PlayNoteDisplay>().createDisplay(note, _song, hitSound);
-                chartDisplay[i].Add(noteObject);
-            }
+    void OnDisable() {
+        BattleManager.OnBattleStateChange -= OnStateUpdate;
+    }
+
+    public void OnStateUpdate(BattleState newState) {
+        previousState = state;
+        if (newState != BattleState.PlayerAttack) {
+            state = newState;
         }
     }
+
+    public void ResetIndecies() {
+        for (int i = 0; i < inputIndex.Length; i++) {
+            inputIndex[i] = 0;
+            printIndex[i] = 0;
+        }
+    }
+
+    public void OnAttackStart() {
+        state = BattleState.PlayerAttack;
+        if (state == BattleState.PlayerAttack && previousState != BattleState.PlayerAttack) {
+            Debug.Log("what");
+            for (int i = 0; i < inputIndex.Length; i++) {
+                inputIndex[i] = printIndex[i];
+            }
+            endPos = Battle.BeatManager.instance.getEndPos();
+            startPos = Battle.BeatManager.instance.getStartPos();
+        }
+    }
+    
+
 
     void Update() {
-        if (Input.GetKeyDown(KeyCode.P)) {
-            _song.Play();
-            playing = !playing;
-        }
-
-        if (!playing) return;
-
-        textField.text = combo.ToString();
-
+        songTime = Battle.BeatManager.instance.getTime();
 
         for (int i = 0; i < chartDisplay.Length; i++) {
-
             if (inputIndex[i] < chart[i].Count) {
                 Note frontNote = chart[i][inputIndex[i]];
-                if (frontNote.type == NoteType.Normal && _song.time >= frontNote.time + BeatManager.BeatLength(BPM) / 4) {
-                    combo = 0;
+                if (frontNote.type == NoteType.Normal && songTime >= frontNote.time + hitWindow) {
+                    if (state == BattleState.PlayerAttack) BattleData.instance.setCombo(0);
                     inputIndex[i]++;
                 } else if (frontNote.type == NoteType.Hold && !chartDisplay[i][inputIndex[i]].GetComponent<PlayHoldNoteDisplay>().getPressed()
-                    && _song.time >= frontNote.time + BeatManager.BeatLength(BPM) / 4) {
-                    combo = 0;
+                    && songTime >= frontNote.time + hitWindow) {
+                    if (state == BattleState.PlayerAttack) BattleData.instance.setCombo(0);
                     inputIndex[i]++;
-                    Debug.Log("passed");
                 }
             }
-
-            if (laneIndex[i] >= chartDisplay[i].Count) continue;
-            if (chartDisplay[i][laneIndex[i]].GetComponent<PlayNoteDisplay>().getTime() <= _song.time + BeatManager.BeatLength(BPM) * (10f / SPEED)) {
-                chartDisplay[i][laneIndex[i]].SetActive(true);
-                laneIndex[i]++;
+            while (printIndex[i] < chartDisplay[i].Count) {
+                float displayTime = displayComponents[i][printIndex[i]].getTime();
+                if (state == BattleState.PlayerAttack &&
+                    displayTime <= songTime + beatLength * (10f / BattleData.instance.getSpeed())
+                    && displayTime <= endPos - hitWindow) {
+                    if (startPos <= displayTime) chartDisplay[i][printIndex[i]].SetActive(true);
+                    printIndex[i]++;
+                } else {
+                    break; // <-- required, or the loop never terminates on a false condition
+                }
             }
         }
 
+        if (state != BattleState.PlayerAttack) return;
 
-        KeyInput(KeyCode.D, 0);
-        KeyInput(KeyCode.F, 1);
-        KeyInput(KeyCode.H, 2);
-        KeyInput(KeyCode.J, 3);
+        KeyInput(KeyCode.A, 0);
+        KeyInput(KeyCode.S, 1);
+        KeyInput(KeyCode.K, 2);
+        KeyInput(KeyCode.L, 3);
     }
-    //_song.time >= frontNote.time + ((frontNote.holdBeats + 1) / (float)frontNote.subdivision) * BeatManager.BeatLength(BPM)
 
     private void KeyInput(KeyCode key, int lane) {
         if (inputIndex[lane] >= chart[lane].Count) return;
@@ -94,50 +112,69 @@ public class VisualManager : MonoBehaviour {
 
         if (currNote.type == NoteType.Normal) {
             if (Input.GetKeyDown(key)) {
-                if (_song.time <= currNote.time + BeatManager.BeatLength(BPM) / 4
-                && _song.time >= currNote.time - BeatManager.BeatLength(BPM) / 4) {
+                if (songTime <= currNote.time + hitWindow
+                && songTime >= currNote.time - hitWindow) {
                     chartDisplay[lane][inputIndex[lane]].SetActive(false);
                     inputIndex[lane]++;
                     _song.PlayOneShot(hitSound);
-                    combo++;
+                    BattleData.instance.setCombo(BattleData.instance.getCombo() + 1);
                 } else {
-                    combo = 0;
+                    BattleData.instance.setCombo(0);
                 }
             }
         } else if (currNote.type == NoteType.Hold) {
-            PlayHoldNoteDisplay currDisplay = chartDisplay[lane][inputIndex[lane]].GetComponent<PlayHoldNoteDisplay>();
+            PlayHoldNoteDisplay currDisplay = (PlayHoldNoteDisplay)displayComponents[lane][inputIndex[lane]];
 
             if (currDisplay.getPressed()) {
                 if (Input.GetKey(key)) {
-                    if (currDisplay.nextInterval() && _song.time <= currNote.time + ((currNote.holdBeats + 1) / (float)currNote.subdivision) * BeatManager.BeatLength(BPM)) {
-                        combo++;
-                        Debug.Log("holding");
-                    } else if (_song.time >= currNote.time + ((currNote.holdBeats + 1) / (float)currNote.subdivision) * BeatManager.BeatLength(BPM)) {
+                    if (currDisplay.nextInterval() && songTime <= currNote.time + ((currNote.holdBeats + 1) / (float)currNote.subdivision) * beatLength) {
+                        BattleData.instance.setCombo(BattleData.instance.getCombo() + 1);
+                    } else if (songTime >= currNote.time + ((currNote.holdBeats + 1) / (float)currNote.subdivision) * beatLength) {
                         inputIndex[lane]++;
                     }
                 } else {
-                    combo = 0;
+                    BattleData.instance.setCombo(0);
                     inputIndex[lane]++;
                 }
                 return;
             }
 
             if (Input.GetKeyDown(key)) {
-                if (_song.time <= currNote.time + BeatManager.BeatLength(BPM) / 4
-                && _song.time >= currNote.time - BeatManager.BeatLength(BPM) / 4 && !currDisplay.getPressed()) {
+                if (songTime <= currNote.time + hitWindow
+                && songTime >= currNote.time - hitWindow && !currDisplay.getPressed()) {
                     currDisplay.pressFront();
-                    combo++;
+                    BattleData.instance.setCombo(BattleData.instance.getCombo() + 1);
                     _song.PlayOneShot(hitSound);
                 }
             }
-
-
         }
-
     }
-}   
 
+    public void createNoteObjects() {
+        for (int i = 0; i < chart.Length; i++) {
+            printIndex[i] = 0;
+            inputIndex[i] = 0;
+            chartDisplay[i] = new List<GameObject>();
+            displayComponents[i] = new List<PlayNoteDisplay>();
+            foreach (Note note in chart[i]) {
+                PlayNoteDisplay display = null;
+                GameObject noteObject = Instantiate(notePrefab);
+                switch (note.type) {
+                    case NoteType.Normal:
+                    display = noteObject.AddComponent<PlayNoteDisplay>();
+                    break;
 
+                    case NoteType.Hold:
+                    display = noteObject.AddComponent<PlayHoldNoteDisplay>();
+                    break;
+                }
+                noteObject.SetActive(false);
+                noteObject.transform.SetParent(noteParent.transform, true);
+                noteObject.GetComponent<PlayNoteDisplay>().createDisplay(note);
+                chartDisplay[i].Add(noteObject);
+                displayComponents[i].Add(display);
+            }
+        }
+    }
 
-
-
+}
