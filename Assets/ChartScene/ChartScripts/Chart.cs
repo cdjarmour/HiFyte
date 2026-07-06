@@ -145,7 +145,6 @@ public static class ChartJSON {
             }
             sortedNotes[i].Sort();
         }
-
         return sortedNotes;
     }
 }

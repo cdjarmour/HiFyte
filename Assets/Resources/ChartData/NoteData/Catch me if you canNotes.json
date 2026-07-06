@@ -630,6 +630,15 @@
         "holdBeats": 31,
         "type": "Hold"
       }
+    },
+    "53": {
+      "1": {
+        "time": 18.0346813,
+        "lane": 0,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
     }
   },
   {
@@ -733,15 +742,6 @@
     "52": {
       "1": {
         "time": 17.68786,
-        "lane": 1,
-        "subdivision": 8,
-        "holdBeats": 0,
-        "type": "Normal"
-      }
-    },
-    "53": {
-      "1": {
-        "time": 18.0346813,
         "lane": 1,
         "subdivision": 8,
         "holdBeats": 0,
@@ -986,15 +986,6 @@
     "51": {
       "5": {
         "time": 17.51445,
-        "lane": 2,
-        "subdivision": 8,
-        "holdBeats": 0,
-        "type": "Normal"
-      }
-    },
-    "52": {
-      "1": {
-        "time": 17.68786,
         "lane": 2,
         "subdivision": 8,
         "holdBeats": 0,
@@ -1511,6 +1502,15 @@
     "27": {
       "1": {
         "time": 9.017341,
+        "lane": 3,
+        "subdivision": 8,
+        "holdBeats": 0,
+        "type": "Normal"
+      }
+    },
+    "52": {
+      "1": {
+        "time": 17.68786,
         "lane": 3,
         "subdivision": 8,
         "holdBeats": 0,

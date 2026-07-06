@@ -5,24 +5,33 @@ using UnityEngine;
 
 public class PlayNoteDisplay : MonoBehaviour {
     protected Note note;
-    protected AudioSource song;
-    protected AudioClip hitSound;
-    protected float beatLength = BeatManager.BeatLength(173);
+    protected float beatLength;
     protected bool played = false;
-
     protected NoteType notetype;
-    public void createDisplay(Note note, AudioSource song, AudioClip hitSound) {
+    protected float songTime;
+
+    void Awake() {
+        beatLength = Battle.BeatManager.instance.getBeatLength();
+    }
+
+    public void createDisplay(Note note) {
         this.note = note;
-        this.song = song;
-        this.hitSound = hitSound;
         notetype = note.type;
     }
 
     void Update() {
-        float timeRemaining = (note.time - song.time) / beatLength;
-        transform.position = new Vector3(-1.2f + (note.lane * 0.8f), 0, timeRemaining * VisualManager.SPEED);
+        UpdatePosition();
+        CheckExpired(note.time + beatLength * 2);
+    }
 
-        if (!played && song.time >= note.time + beatLength * 2) {
+    protected void UpdatePosition() {
+        songTime = Battle.BeatManager.instance.getTime();
+        float timeRemaining = (note.time - songTime) / beatLength;
+        transform.position = new Vector3(-1.2f + (note.lane * 0.8f), 0, timeRemaining * BattleData.instance.getSpeed());
+    }
+
+    protected void CheckExpired(float expireTime) {
+        if (!played && songTime >= expireTime) {
             played = true;
             gameObject.SetActive(false);
         }
@@ -39,35 +48,39 @@ public class PlayHoldNoteDisplay : PlayNoteDisplay {
     private int count = 0;
     private bool passed = false;
 
+    private float holdDuration;      // ((note.holdBeats + 1) / subdivision) * beatLength
+    private float intervalLength;    // beatLength / floor(subdivision / 2)
+    private int maxIntervalCount;    // floor(holdBeats / 2)
 
     void Start() {
-        float displaySize = (note.holdBeats + 1) / ( (float) note.subdivision / VisualManager.SPEED);
+        holdDuration = ((note.holdBeats + 1) / (float)note.subdivision) * beatLength;
+        intervalLength = beatLength / Mathf.Floor(note.subdivision / 2f);
+        maxIntervalCount = (int)Mathf.Floor(note.holdBeats / 2f);
+
+        float displaySize = (note.holdBeats + 1) / ((float)note.subdivision / BattleData.instance.getSpeed());
         Transform noteSprite = transform.Find("NoteSprite");
         noteSprite.localScale = new Vector3(displaySize, noteSprite.localScale.y, noteSprite.localScale.z);
         noteSprite.localPosition = new Vector3(noteSprite.localPosition.x, noteSprite.localPosition.y, displaySize / 2f);
 
         count = 0;
-        nextBeat = note.time + beatLength / Mathf.Floor(note.subdivision / 2f);
-
+        nextBeat = note.time + intervalLength;
     }
 
-
     void Update() {
-        float timeRemaining = (note.time - song.time) / beatLength;
-        transform.position = new Vector3(-1.2f + (note.lane * 0.8f), 0, timeRemaining * VisualManager.SPEED);
+        UpdatePosition();
 
-        if (song.time >= nextBeat && count < Mathf.Floor(note.holdBeats / 2)) {
+        if (songTime >= nextBeat && count < maxIntervalCount) {
             passed = true;
-            nextBeat = nextBeat + beatLength / Mathf.Floor(note.subdivision / 2f); ;
+            nextBeat += intervalLength;
             count++;
-        } else passed = false;
-
-
+        } else {
+            passed = false;
+        }
 
         if (frontPressed) return;
 
+        CheckExpired(note.time + holdDuration + beatLength * 2);
     }
-
 
     public void pressFront() {
         frontPressed = true;
@@ -80,5 +93,4 @@ public class PlayHoldNoteDisplay : PlayNoteDisplay {
     public bool nextInterval() {
         return passed;
     }
-
 }
