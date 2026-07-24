@@ -1,0 +1,9 @@
+{
+  "name": "SampleSong",
+  "composer": "Shamel",
+  "bpm": 180,
+  "samplePos": 0.0,
+  "audioFilePath": "AudioFiles/SampleSong",
+  "imageFilePath": "ChartCover/SampleSong",
+  "notesFilePath": "NoteData/SampleSongNotes"
+}

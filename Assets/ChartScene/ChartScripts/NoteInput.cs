@@ -47,8 +47,8 @@ public class NoteInput : MonoBehaviour, IPointerDownHandler, IPointerUpHandler {
         if (eventData.button == PointerEventData.InputButton.Left) {
             addNote(currLane, currBeat, subBeat, new Note(time, currLane, subdivisions, ChartSingleton.instance.getState()));
 
-            if (ChartSingleton.instance.getState() == "Hold") {
-                ChartSingleton.instance.setState("Extending");
+            if (ChartSingleton.instance.getState() == NoteType.Hold) {
+                ChartSingleton.instance.setState(NoteType.Extend);
                 baseNote = chartLanes[currLane][currBeat][subBeat];
                 baseBeat = currBeat;
                 baseSubBeat = subBeat;
@@ -57,7 +57,7 @@ public class NoteInput : MonoBehaviour, IPointerDownHandler, IPointerUpHandler {
 
             Note clickedNote = removeNote(currLane, currBeat, subBeat);
 
-            if (clickedNote != null && clickedNote.type == "Hold") {
+            if (clickedNote != null && clickedNote.type == NoteType.Hold) {
                 int holdCounter = 0;
                 int holdBase = Mathf.FloorToInt(clickedNote.time / BeatManager.BeatLength(ChartSingleton.instance.getBPM())) + 1;
                 int holdSub = Mathf.RoundToInt((((clickedNote.time / BeatManager.BeatLength(ChartSingleton.instance.getBPM())) + 1) - holdBase) * clickedNote.subdivision);
@@ -88,9 +88,9 @@ public class NoteInput : MonoBehaviour, IPointerDownHandler, IPointerUpHandler {
 
 
     public void OnPointerUp(PointerEventData eventData) {
-        if (ChartSingleton.instance.getState() == "Extending") {
+        if (ChartSingleton.instance.getState() == NoteType.Extend) {
             subdivisions = ChartSingleton.instance.getSubdivisions();
-            ChartSingleton.instance.setState("Hold");
+            ChartSingleton.instance.setState(NoteType.Hold);
             float beatClicked = ChartSingleton.instance.getBaseBeat() + (float)(eventData.position.y / BEAT_HEIGHT);
             int currBeat = Mathf.FloorToInt(beatClicked);
 
@@ -119,7 +119,7 @@ public class NoteInput : MonoBehaviour, IPointerDownHandler, IPointerUpHandler {
                 }
 
             } else {
-                baseNote.type = "Normal";
+                baseNote.type = NoteType.Normal;
             }
 
             Debug.Log("hold length: " + Mathf.RoundToInt(((time - baseNote.time) / BeatManager.BeatLength(ChartSingleton.instance.getBPM()) * subdivisions)));
@@ -148,10 +148,10 @@ public class NoteInput : MonoBehaviour, IPointerDownHandler, IPointerUpHandler {
                 if (chartLanes[i].ContainsKey(j)) {
                     for (int k = 1; k <= MAX_SUBDIVISIONS; k++) {
                         if (chartLanes[i][j].ContainsKey(k)) {
-                            if (chartLanes[i][j][k].type == "Hold"
+                            if (chartLanes[i][j][k].type == NoteType.Hold
                                 || (chartLanes[i][j][k].time >= (ChartSingleton.instance.getBaseBeat() - 2) * BeatManager.BeatLength(ChartSingleton.instance.getBPM()) - epsilon
                                 && chartLanes[i][j][k].time <= (ChartSingleton.instance.getBaseBeat() + upper) * BeatManager.BeatLength(ChartSingleton.instance.getBPM()) + epsilon)) {
-                                if (chartLanes[i][j][k].type == "Hold") {
+                                if (chartLanes[i][j][k].type == NoteType.Hold) {
                                     if (!holdDuplicates.Contains(chartLanes[i][j][k])) {
                                          holdDuplicates.Add(chartLanes[i][j][k]);
                                     } else {
@@ -191,7 +191,9 @@ public class NoteInput : MonoBehaviour, IPointerDownHandler, IPointerUpHandler {
             if (chartLanes[currLane][currBeat].ContainsKey(subBeat)) {
                 removed = chartLanes[currLane][currBeat][subBeat];
                 chartLanes[currLane][currBeat].Remove(subBeat);
-
+                if (chartLanes[currLane][currBeat].Count <= 0) {
+                    chartLanes[currLane].Remove(currBeat);
+                }
             }
         }
         return removed;

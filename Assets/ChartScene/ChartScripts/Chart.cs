@@ -3,9 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.IO.Enumeration;
+using System.Linq;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using Unity.VisualScripting;
 using UnityEngine;
-using Newtonsoft.Json;
 
 
 [Serializable]
@@ -38,28 +40,27 @@ public class ChartData {
 
 
 [Serializable]
-public class Note {
+public class Note : IComparable<Note> {
     public float time;
     public int lane;
     public int subdivision;
     public int holdBeats;
-    public String type;
+    public NoteType type;
 
     public Note() { }
-    public Note(float time, int lane, int subdivision, int holdBeats, String nt) {
+    public Note(float time, int lane, int subdivision, int holdBeats, NoteType nt) {
         this.type = nt;
         this.time = time;
         this.lane = lane;
         this.subdivision = subdivision;
         this.holdBeats = holdBeats;
-        this.type = nt;
     }
 
-    public Note(float time, int lane, int subdivision, String nt)
+    public Note(float time, int lane, int subdivision, NoteType nt)
         : this(time, lane, subdivision, 0, nt)  {}
 
     public Note(float time, int lane, int subdivision)
-    : this(time, lane, subdivision, 0, "Normal") { }
+    : this(time, lane, subdivision, 0, NoteType.Normal) { }
 
     public override bool Equals(object obj) {
         if (obj is Note other)
@@ -70,6 +71,11 @@ public class Note {
     public override int GetHashCode() {
         return HashCode.Combine(Mathf.RoundToInt(time * 10000), lane);
     }
+
+    public int CompareTo(Note other) {
+        return time.CompareTo(other.time);
+    }
+
 }
 
 
@@ -125,5 +131,30 @@ public static class ChartJSON {
         sw.Write(noteJSON);
     }
 
+    public static List<Note>[] getSortedNotes(string name) {
+        Dictionary<int, Dictionary<int, Note>>[] notes = getNotes(getMetaData(name));
+        List<Note>[] sortedNotes = new List<Note>[4];
+
+        for (int i = 0; i < notes.Length; i++) {
+            sortedNotes[i] = new List<Note>();
+            foreach (Dictionary<int, Note> beats in notes[i].Values) {
+                foreach (Note note in beats.Values) {
+                    if (sortedNotes[i].Contains(note)) continue;
+                    sortedNotes[i].Add(note);
+                }
+            }
+            sortedNotes[i].Sort();
+        }
+        return sortedNotes;
+    }
 }
 
+
+[JsonConverter(typeof(StringEnumConverter))]
+public enum NoteType {
+    Normal,
+    Hold,
+    Tap,
+    Release,
+    Extend
+}

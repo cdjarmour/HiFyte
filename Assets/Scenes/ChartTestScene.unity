@@ -777,7 +777,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _location: {x: 320, y: 540}
   _audioSource: {fileID: 446571088}
-  _builderData: {fileID: 274590529}
   _input: {fileID: 1022256317}
   lane8: {fileID: 21300000, guid: 5b847314308464d4c915418dc1cb9919, type: 3}
   lane9: {fileID: 21300000, guid: 69f1794b9ef39cb42a6d46bc1e69df30, type: 3}
@@ -1115,12 +1114,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 274590528}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a409db6142979c24c990e28829aef27e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _canvas: {fileID: 698182190}
+  _CANVAS: {fileID: 698182190}
 --- !u!4 &274590530
 Transform:
   m_ObjectHideFlags: 0
@@ -2654,7 +2653,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _input: {fileID: 1022256317}
   _buildDisplay: {fileID: 42707881}
-  _chartSingleton: {fileID: 274590529}
   save: {fileID: 1405937069}
   exit: {fileID: 1974441533}
   placeNormal: {fileID: 133376373}
