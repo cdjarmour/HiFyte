@@ -44,7 +44,7 @@ namespace Battle {
         private int lastLoggedBeat = -1;
 
         void Update() {
-            preciseTime = (float)audioSource.timeSamples / audioSource.clip.frequency;
+            preciseTime = (float) ( (double) audioSource.timeSamples / audioSource.clip.frequency);
 
             if (audioSource.timeSamples >= audioSource.clip.samples) {
                 audioSource.timeSamples = Mathf.FloorToInt(loopPos * audioSource.clip.frequency);

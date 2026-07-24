@@ -23,7 +23,7 @@ public class BattleData : MonoBehaviour
         bpm = chartData.bpm;
         songName = chartData.name;
         combo = 0;
-        speed = 3;
+        speed = 6;
     }
 
 

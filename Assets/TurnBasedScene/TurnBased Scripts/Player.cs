@@ -9,6 +9,8 @@ namespace Battle {
 
         private AttackAction[] moves;
 
+        private int HP;
+
         private int decisionBeatWindow;
         private int rhythmBeatWindow;
 
@@ -31,6 +33,10 @@ namespace Battle {
 
         public AttackAction getAction(int index) {
             return moves[index];
+        }
+
+        public void setHP(int hp) {
+            HP = hp; 
         }
     }
 
