@@ -1,15 +1,36 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 namespace Battle {
     public class Enemy : MonoBehaviour {
-        private int health = 100;
+        [SerializeField] private List<AttackAction> attack = new List<AttackAction>();
+
+        private int health;
+
+        public static event Action<int> OnHealthChange;
+
+        private void OnEnable() {
+            health = 100;
+            ActionManager.OnPlayerAttack += OnPlayerAction;
+        }
+
+        private void Start() {
+            OnHealthChange?.Invoke(health);
+        }
 
 
 
-        public void doDamage(int damage) {
-            health =- damage;
+        private void OnPlayerAction(AttackAction action) {
+            doDamage(action.damage);
+        }
+
+
+
+        private void doDamage(int damage) {
+            health -= damage;
+            OnHealthChange?.Invoke(health);
         }
 
         public int getHealth() {

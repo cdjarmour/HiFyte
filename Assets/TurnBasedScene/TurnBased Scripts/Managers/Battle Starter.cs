@@ -24,4 +24,8 @@ public class BattleStarter : MonoBehaviour
     }
 
 
+    private void PlayerLoader() {
+
+    }
+
 }

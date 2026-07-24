@@ -8,6 +8,7 @@ public class VisualManager : MonoBehaviour {
     [SerializeField] private GameObject notePrefab;
     [SerializeField] private GameObject noteParent;
     [SerializeField] private AudioClip hitSound;
+    [SerializeField] private GameObject visuals;
 
     #region Note Storage
     private List<Note>[] chart;
@@ -46,6 +47,9 @@ public class VisualManager : MonoBehaviour {
         previousState = state;
         if (newState != BattleState.PlayerAttack) {
             state = newState;
+            if (newState == BattleState.EnemyTurn) {
+                visuals.SetActive(false);
+            } else visuals.SetActive(true); 
         }
     }
 
@@ -57,15 +61,15 @@ public class VisualManager : MonoBehaviour {
     }
 
     public void OnAttackStart() {
-        state = BattleState.PlayerAttack;
-        if (state == BattleState.PlayerAttack && previousState != BattleState.PlayerAttack) {
-            Debug.Log("what");
+        if (previousState != BattleState.PlayerAttack) {
+            visuals.SetActive(true);
             for (int i = 0; i < inputIndex.Length; i++) {
                 inputIndex[i] = printIndex[i];
             }
             endPos = Battle.BeatManager.instance.getEndPos();
             startPos = Battle.BeatManager.instance.getStartPos();
         }
+        state = BattleState.PlayerAttack;
     }
     
 
@@ -76,6 +80,8 @@ public class VisualManager : MonoBehaviour {
         for (int i = 0; i < chartDisplay.Length; i++) {
             if (inputIndex[i] < chart[i].Count) {
                 Note frontNote = chart[i][inputIndex[i]];
+
+
                 if (frontNote.type == NoteType.Normal && songTime >= frontNote.time + hitWindow) {
                     if (state == BattleState.PlayerAttack) BattleData.instance.setCombo(0);
                     inputIndex[i]++;
@@ -93,7 +99,7 @@ public class VisualManager : MonoBehaviour {
                     if (startPos <= displayTime) chartDisplay[i][printIndex[i]].SetActive(true);
                     printIndex[i]++;
                 } else {
-                    break; // <-- required, or the loop never terminates on a false condition
+                    break; 
                 }
             }
         }
@@ -133,7 +139,10 @@ public class VisualManager : MonoBehaviour {
                         inputIndex[lane]++;
                     }
                 } else {
-                    BattleData.instance.setCombo(0);
+                    if (songTime >= currNote.time + ((currNote.holdBeats + 1) / (float)currNote.subdivision) * beatLength - hitWindow) {
+                    } else {
+                        BattleData.instance.setCombo(0);
+                    }
                     inputIndex[lane]++;
                 }
                 return;
