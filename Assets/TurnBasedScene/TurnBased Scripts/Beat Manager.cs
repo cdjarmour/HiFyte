@@ -8,7 +8,7 @@ namespace Battle {
         private const int COUNTDOWN_TIME = 8;
 
         private const int PLAYER_DECISION_TIME = 16;
-        private const int PLAYER_PLAY_TIME = 16;
+        private const int PLAYER_PLAY_TIME = 100;
 
 
         public static BeatManager instance { get; private set; }
