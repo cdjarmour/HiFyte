@@ -7,7 +7,7 @@ public class BattleData : MonoBehaviour
     public static BattleData instance { get; private set; }
 
     //Temp placeholder will be obtained from player and a startup script
-    private string song = "Catch me if you can";
+    private string song = "Night of Knights";
     private ChartData chartData;
 
 
